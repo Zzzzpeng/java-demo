@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chen.realproject.dao.ArticleMapper">
+
+    <resultMap id="m" type="com.chen.realproject.entity.Article">
+        <id property="id" column="id" />
+        <result column="author_id" property="authorId"></result>
+        <result column="author_id" property="authorId"></result>
+        <association property="author" column="author_id"  select="findUserById" javaType="com.chen.realproject.entity.User">
+
+        </association>
+    </resultMap>
+
+    <resultMap id="resMap" type="HashMap">
+        <id property="id" column="id" />
+        <result column="author_id" property="authorId"></result>
+        <association property="author" column="author_id"  select="findUserById" javaType="com.chen.realproject.entity.User">
+
+        </association>
+    </resultMap>
+    <select id="findUserById" resultType="com.chen.realproject.entity.User">
+        select * from user where userName = #{arg0}
+    </select>
+
+    <select id="findOne" resultMap="m" parameterType="java.lang.Long">
+        select * from adviser_article where id = #{id}
+    </select>
+
+    <select id="findOneByTitle" resultType="com.chen.realproject.entity.Article" >
+        select * from adviser_article where title = #{0}
+    </select>
+
+    <select id="findOneAsMap" parameterType="Long"  resultMap="resMap">
+        select * from adviser_article where id = #{id}
+    </select>
+
+    <update id="save" parameterType="com.chen.realproject.entity.Article">
+        insert  into adviser_article(title,content,author_id) values(#{title},#{content},#{authorId})
+    </update>
+
+    <update id="update">
+        update adviser_article set content = #{arg0} where id = 0
+    </update>
+
+    <select id="findList" resultMap="m">
+        select * from  adviser_article where 1=1
+    </select>
+
+</mapper>

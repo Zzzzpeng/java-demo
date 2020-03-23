@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chen.tkmybatis.dao.MenuMapper">
+
+
+    <select id="getAllMenu" resultType="com.chen.tkmybatis.po.foodorder.Menu">
+        select id,name,price from menu
+    </select>
+
+    
+    <!---->
+    <!--<resultMap id="resMap" type="com.chen.bookmanager.model.Menu">-->
+        <!--<id property="id" column="id"></id>-->
+        <!--<collection property="children" column="id" select="queryChildrenMenu"></collection>-->
+    <!--</resultMap>-->
+
+    <!--<select id="queryChildrenMenu" resultMap="resMap">-->
+        <!--select id ,name,url ,icon,parent,level from menu  where parent = #{0}-->
+    <!--</select>-->
+
+    <!--<select id="getMenus" resultMap="resMap">-->
+        <!--SELECT-->
+	<!--m. NAME AS name,-->
+	<!--m.icon AS icon,-->
+	<!--m.url AS url,-->
+	<!--m.id AS id,-->
+	<!--m.parent AS parent,-->
+	<!--m.level AS level-->
+<!--FROM-->
+	<!--user_role AS ur,-->
+	<!--role_menu AS rm,-->
+	<!--menu AS m-->
+<!--WHERE-->
+	<!--ur.user_id = 'ad001'-->
+<!--AND ur.role_id = rm.role_id-->
+<!--AND rm.menu_id = m.id-->
+<!--order by `order`-->
+    <!--</select>-->
+</mapper>

@@ -1,0 +1,1397 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="web-mvc:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1137d1f7-b52f-4aec-82f2-d08f35205613" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/manager$RealProjectApplication.ic" NAME="RealProjectApplication Coverage Results" MODIFIED="1580274178077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/manager$Mybatis_Spring_Test.ic" NAME="Mybatis_Spring_Test Coverage Results" MODIFIED="1580316063132" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.chen.annotationcac.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="manager" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="spring-beans.schema" />
+        <option value="FxmlFile" />
+        <option value="AnnotationType" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="HierarchyBrowserManager">
+    <option name="SCOPE" value="All" />
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="alwaysUpdateSnapshots" value="true" />
+        <option name="mavenHome" value="E:/maven/apache-maven-3.3.9" />
+        <option name="userSettingsFile" value="E:\maven\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Z4mnz5t9Z3wkkVuVppL94kGoWK" />
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State />
+          <State>
+            <id>Ali-Check</id>
+          </State>
+          <State>
+            <id>Android</id>
+          </State>
+          <State>
+            <id>CSS</id>
+          </State>
+          <State>
+            <id>CodeSpring CoreSpring</id>
+          </State>
+          <State>
+            <id>CorrectnessLintAndroid</id>
+          </State>
+          <State>
+            <id>EncapsulationJava</id>
+          </State>
+          <State>
+            <id>IconsUsabilityLintAndroid</id>
+          </State>
+          <State>
+            <id>Inheritance issuesJava</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>JavaFX</id>
+          </State>
+          <State>
+            <id>LintAndroid</id>
+          </State>
+          <State>
+            <id>PerformanceLintAndroid</id>
+          </State>
+          <State>
+            <id>Plugin DevKit</id>
+          </State>
+          <State>
+            <id>SetupSpring CoreSpring</id>
+          </State>
+          <State>
+            <id>Spring</id>
+          </State>
+          <State>
+            <id>Spring AOPSpring</id>
+          </State>
+          <State>
+            <id>Spring BootSpring</id>
+          </State>
+          <State>
+            <id>Spring CloudSpring</id>
+          </State>
+          <State>
+            <id>Spring CoreSpring</id>
+          </State>
+          <State>
+            <id>Spring MVCSpring</id>
+          </State>
+          <State>
+            <id>Spring Web ServicesSpring</id>
+          </State>
+          <State>
+            <id>Spring WebSocketSpring</id>
+          </State>
+          <State>
+            <id>UsabilityLintAndroid</id>
+          </State>
+          <State>
+            <id>XMLSpring CoreSpring</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>SpringJavaInjectionPointsAutowiringInspection</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="MapperScannerConfigurer&#9;FILE&#9;jar://H:/pro/maven_rep/repository/org/mybatis/mybatis-spring/2.0.1/mybatis-spring-2.0.1-sources.jar!/org/mybatis/spring/mapper/MapperScannerConfigurer.java&#10;Mapperproxy&#9;FILE&#9;jar://H:/pro/maven_rep/repository/org/mybatis/mybatis/3.5.2/mybatis-3.5.2-sources.jar!/org/apache/ibatis/binding/MapperProxy.java&#10;getu&#9;FILE&#9;file://E:/Pro/manager/bookmanager/src/main/java/com/chen/bookmanager/schedule/GetUpTask.java&#10;Config&#9;FILE&#9;jar://H:/pro/maven_rep/repository/org/springframework/spring-context/4.2.4.RELEASE/spring-context-4.2.4.RELEASE-sources.jar!/org/springframework/context/ConfigurableApplicationContext.java" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1583648999599" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tkmybatis/src/main/java/com/chen/tkmybatis/dao" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.1520991" />
+    <property name="project.structure.side.proportion" value="0.16233766" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Pro\manager\annotationcac\src\main\java\com\chen\annotationcac\dao" />
+      <recent name="E:\Pro\manager\annotationcac\src\main\java\com\chen\annotationcac\dao\mapper" />
+      <recent name="E:\Pro\manager\real-project\src\main\resources" />
+      <recent name="E:\Pro\manager\real-project\src\main\resources\templates" />
+      <recent name="E:\Pro\manager\web-mvc\src\main\resources\config" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.chen.annotationcac" />
+      <recent name="" />
+      <recent name="com.chen.bookmanager" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="poi" />
+      <recent name="util" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Pro\manager\tkmybatis\src\main\java\com\chen\tkmybatis\dao" />
+      <recent name="E:\Pro\manager\tkmybatis\src\main\resources\mybatis\mapper" />
+      <recent name="E:\Pro\manager\spring-tomcat\src\main\resources" />
+      <recent name="E:\Pro\manager\update-excel\src\main\java\com\chen\mail" />
+      <recent name="E:\Pro\manager\annotationcac\src\main\resources\mybatis\conf" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.TreeTest">
+    <configuration name="ChannalTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="nio.ChannalTest" />
+      <module name="javaseDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReverseListTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dataStruct.ReverseListTest" />
+      <module name="javaseDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataStruct.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TreeTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dataStruct.TreeTest" />
+      <module name="javaseDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataStruct.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZiluNioTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="nio.ZiluNioTest" />
+      <module name="javaseDemo" />
+      <option name="VM_PARAMETERS" value="-Xms1024m -Xmx1024m" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="nio.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TkmybatisApplicationTests.te" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tkmybatis" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chen.tkmybatis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chen.tkmybatis" />
+      <option name="MAIN_CLASS_NAME" value="com.chen.tkmybatis.TkmybatisApplicationTests" />
+      <option name="METHOD_NAME" value="te" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AnnotationcacApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="annotationcac" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chen.annotationcac.AnnotationcacApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookmanagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="bookmanager" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chen.bookmanager.BookmanagerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HibernatedemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="hibernatedemo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chen.hibernatedemo.hibernatedemo.HibernatedemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RealProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="real-project" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chen.realproject.RealProjectApplication" />
+      <option name="ACTIVE_PROFILES" value="local" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShardingJdbcDemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sharding-jdbc-demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chen.shardingjdbc.ShardingJdbcDemoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TkmybatisApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="tkmybatis" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.chen.tkmybatis.TkmybatisApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="spring-mvc" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.53" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="spring-mvc:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_manager_2" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51906" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.ReverseListTest" />
+      <item itemvalue="Application.ZiluNioTest" />
+      <item itemvalue="JUnit.TkmybatisApplicationTests.te" />
+      <item itemvalue="Spring Boot.BookmanagerApplication" />
+      <item itemvalue="Spring Boot.HibernatedemoApplication" />
+      <item itemvalue="Spring Boot.RealProjectApplication" />
+      <item itemvalue="Spring Boot.ShardingJdbcDemoApplication" />
+      <item itemvalue="Spring Boot.TkmybatisApplication" />
+      <item itemvalue="Spring Boot.AnnotationcacApplication" />
+      <item itemvalue="Tomcat Server.spring-mvc" />
+      <item itemvalue="Application.ChannalTest" />
+      <item itemvalue="Application.TreeTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TreeTest" />
+        <item itemvalue="Application.ChannalTest" />
+        <item itemvalue="JUnit.TkmybatisApplicationTests.te" />
+        <item itemvalue="Application.ZiluNioTest" />
+        <item itemvalue="Application.ReverseListTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_NON_PUBLIC" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1137d1f7-b52f-4aec-82f2-d08f35205613" name="Default Changelist" comment="" />
+      <created>1561985449651</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1561985449651</updated>
+      <workItem from="1561985456465" duration="8430000" />
+      <workItem from="1562071706979" duration="8706000" />
+      <workItem from="1562158669065" duration="5662000" />
+      <workItem from="1562295418380" duration="10951000" />
+      <workItem from="1562495359173" duration="786000" />
+      <workItem from="1563083595363" duration="1581000" />
+      <workItem from="1563108271989" duration="859000" />
+      <workItem from="1563718653227" duration="4257000" />
+      <workItem from="1563802857986" duration="1805000" />
+      <workItem from="1564468653080" duration="810000" />
+      <workItem from="1564921593143" duration="4635000" />
+      <workItem from="1565494161120" duration="506000" />
+      <workItem from="1565496405427" duration="4888000" />
+      <workItem from="1565543711206" duration="443000" />
+      <workItem from="1565606737787" duration="2251000" />
+      <workItem from="1565697224383" duration="3507000" />
+      <workItem from="1565757814883" duration="8362000" />
+      <workItem from="1565833777494" duration="2581000" />
+      <workItem from="1566021072689" duration="605000" />
+      <workItem from="1566038737752" duration="599000" />
+      <workItem from="1566213113002" duration="5274000" />
+      <workItem from="1566218768425" duration="60786000" />
+      <workItem from="1566355167938" duration="6158000" />
+      <workItem from="1566396212305" duration="7769000" />
+      <workItem from="1566617524727" duration="2185000" />
+      <workItem from="1566660812498" duration="1199000" />
+      <workItem from="1566704223237" duration="5510000" />
+      <workItem from="1566710683464" duration="30925000" />
+      <workItem from="1566961931149" duration="25296000" />
+      <workItem from="1567353496286" duration="28478000" />
+      <workItem from="1567563827535" duration="13575000" />
+      <workItem from="1567774132624" duration="18000" />
+      <workItem from="1567775582825" duration="4367000" />
+      <workItem from="1567833384076" duration="15641000" />
+      <workItem from="1567997758827" duration="5752000" />
+      <workItem from="1568085356711" duration="25540000" />
+      <workItem from="1568223183190" duration="4206000" />
+      <workItem from="1568267903087" duration="2079000" />
+      <workItem from="1568358786809" duration="3740000" />
+      <workItem from="1568479619360" duration="45000" />
+      <workItem from="1568535423782" duration="3533000" />
+      <workItem from="1568549016556" duration="1233000" />
+      <workItem from="1568596791528" duration="4020000" />
+      <workItem from="1568707598970" duration="244000" />
+      <workItem from="1568722628752" duration="1127000" />
+      <workItem from="1568730519928" duration="1144000" />
+      <workItem from="1568733907306" duration="5761000" />
+      <workItem from="1568740943577" duration="6572000" />
+      <workItem from="1568805159746" duration="1534000" />
+      <workItem from="1568869703265" duration="4607000" />
+      <workItem from="1568970721938" duration="5334000" />
+      <workItem from="1569141703908" duration="18578000" />
+      <workItem from="1569325146897" duration="3421000" />
+      <workItem from="1569418018632" duration="16899000" />
+      <workItem from="1569554630366" duration="29722000" />
+      <workItem from="1569640359953" duration="27425000" />
+      <workItem from="1569678539899" duration="2072000" />
+      <workItem from="1569685459298" duration="3141000" />
+      <workItem from="1569759672158" duration="5696000" />
+      <workItem from="1569990485772" duration="2672000" />
+      <workItem from="1570180511147" duration="952000" />
+      <workItem from="1570444897894" duration="14940000" />
+      <workItem from="1570538355986" duration="2223000" />
+      <workItem from="1570624747652" duration="1221000" />
+      <workItem from="1570711261579" duration="2385000" />
+      <workItem from="1570719279592" duration="1174000" />
+      <workItem from="1570720488514" duration="1352000" />
+      <workItem from="1570804372745" duration="6594000" />
+      <workItem from="1570893113816" duration="4685000" />
+      <workItem from="1570939970528" duration="4589000" />
+      <workItem from="1571233882099" duration="8548000" />
+      <workItem from="1571411490607" duration="2876000" />
+      <workItem from="1571447562953" duration="1999000" />
+      <workItem from="1571449609518" duration="9882000" />
+      <workItem from="1571553121225" duration="1174000" />
+      <workItem from="1571923238564" duration="2986000" />
+      <workItem from="1572183376930" duration="4805000" />
+      <workItem from="1572266604422" duration="9247000" />
+      <workItem from="1572361200921" duration="2797000" />
+      <workItem from="1572538524599" duration="3264000" />
+      <workItem from="1572658777661" duration="3372000" />
+      <workItem from="1572753168525" duration="10842000" />
+      <workItem from="1572806084501" duration="317000" />
+      <workItem from="1572883428234" duration="881000" />
+      <workItem from="1572971216195" duration="1430000" />
+      <workItem from="1573272322006" duration="17516000" />
+      <workItem from="1573820193249" duration="5379000" />
+      <workItem from="1573834329413" duration="23616000" />
+      <workItem from="1573967627861" duration="5222000" />
+      <workItem from="1574091079981" duration="2193000" />
+      <workItem from="1574175405255" duration="1624000" />
+      <workItem from="1574263155753" duration="2975000" />
+      <workItem from="1574474725387" duration="9191000" />
+      <workItem from="1574494681135" duration="19472000" />
+      <workItem from="1574692264981" duration="5648000" />
+      <workItem from="1574772298618" duration="9672000" />
+      <workItem from="1574855588226" duration="11668000" />
+      <workItem from="1574956745371" duration="4596000" />
+      <workItem from="1575028791093" duration="10957000" />
+      <workItem from="1575130493502" duration="1113000" />
+      <workItem from="1575167845284" duration="1046000" />
+      <workItem from="1575168953105" duration="23206000" />
+      <workItem from="1575383809316" duration="4321000" />
+      <workItem from="1575467406877" duration="7304000" />
+      <workItem from="1575688739761" duration="22225000" />
+      <workItem from="1575737849840" duration="3318000" />
+      <workItem from="1575906780768" duration="2453000" />
+      <workItem from="1575991551837" duration="2382000" />
+      <workItem from="1576081719551" duration="1199000" />
+      <workItem from="1576168382995" duration="1349000" />
+      <workItem from="1576316482859" duration="11909000" />
+      <workItem from="1576516236654" duration="247000" />
+      <workItem from="1576597395232" duration="1157000" />
+      <workItem from="1576683405583" duration="1327000" />
+      <workItem from="1576895864274" duration="24559000" />
+      <workItem from="1577116485038" duration="3714000" />
+      <workItem from="1577200468166" duration="1212000" />
+      <workItem from="1577369992062" duration="3331000" />
+      <workItem from="1577460332036" duration="47478000" />
+      <workItem from="1577712612677" duration="2174000" />
+      <workItem from="1577852673456" duration="21769000" />
+      <workItem from="1577894553770" duration="1063000" />
+      <workItem from="1578238231554" duration="1110000" />
+      <workItem from="1578324111138" duration="629000" />
+      <workItem from="1578407388390" duration="2157000" />
+      <workItem from="1578496312760" duration="715000" />
+      <workItem from="1578659623873" duration="69633000" />
+      <workItem from="1579176780372" duration="4425000" />
+      <workItem from="1579347601807" duration="6706000" />
+      <workItem from="1579524897107" duration="1586000" />
+      <workItem from="1579844388943" duration="9458000" />
+      <workItem from="1579914059759" duration="23119000" />
+      <workItem from="1580003125315" duration="58728000" />
+      <workItem from="1580286555065" duration="9068000" />
+      <workItem from="1580348716173" duration="103176000" />
+      <workItem from="1581074063463" duration="39473000" />
+      <workItem from="1581421647039" duration="13647000" />
+      <workItem from="1581507598052" duration="89824000" />
+      <workItem from="1581817576973" duration="14363000" />
+      <workItem from="1581942228597" duration="7993000" />
+      <workItem from="1582020194092" duration="1203000" />
+      <workItem from="1582120943502" duration="8958000" />
+      <workItem from="1582201924696" duration="48000" />
+      <workItem from="1582212144030" duration="26007000" />
+      <workItem from="1582379596447" duration="26140000" />
+      <workItem from="1583055484599" duration="11348000" />
+      <workItem from="1583413765239" duration="10894000" />
+      <workItem from="1583852475952" duration="442000" />
+      <workItem from="1584106919863" duration="290000" />
+      <workItem from="1584107254995" duration="102000" />
+      <workItem from="1584107399300" duration="359000" />
+      <workItem from="1584107821283" duration="127000" />
+      <workItem from="1584108007182" duration="54000" />
+      <workItem from="1584108117572" duration="298000" />
+      <workItem from="1584108841659" duration="239000" />
+      <workItem from="1584109155994" duration="22000" />
+      <workItem from="1584109428741" duration="94000" />
+      <workItem from="1584109828458" duration="26000" />
+      <workItem from="1584109876544" duration="38237000" />
+      <workItem from="1584361209699" duration="275000" />
+      <workItem from="1584366091613" duration="51031000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584268219481">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584268219481" />
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser" timestamp="1584456814653">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="235" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1584456814653" />
+    <state width="1877" height="129" key="GridCell.Tab.0.bottom" timestamp="1584882972649">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972649" />
+    <state width="1877" height="129" key="GridCell.Tab.0.center" timestamp="1584882972649">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972649" />
+    <state width="1877" height="129" key="GridCell.Tab.0.left" timestamp="1584882972648">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972648" />
+    <state width="1877" height="129" key="GridCell.Tab.0.right" timestamp="1584882972649">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972649" />
+    <state width="1877" height="129" key="GridCell.Tab.1.bottom" timestamp="1584882972865">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972865" />
+    <state width="1877" height="129" key="GridCell.Tab.1.center" timestamp="1584882972865">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972865" />
+    <state width="1877" height="129" key="GridCell.Tab.1.left" timestamp="1584882972864">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972864" />
+    <state width="1877" height="129" key="GridCell.Tab.1.right" timestamp="1584882972865">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972865" />
+    <state width="1877" height="129" key="GridCell.Tab.2.bottom" timestamp="1584882972479">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972479" />
+    <state width="1877" height="129" key="GridCell.Tab.2.center" timestamp="1584882972479">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972479" />
+    <state width="1877" height="129" key="GridCell.Tab.2.left" timestamp="1584882972479">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972479" />
+    <state width="1877" height="129" key="GridCell.Tab.2.right" timestamp="1584882972479">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972479" />
+    <state width="1877" height="129" key="GridCell.Tab.3.bottom" timestamp="1584882972480">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.3.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972480" />
+    <state width="1877" height="129" key="GridCell.Tab.3.center" timestamp="1584882972480">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.3.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972480" />
+    <state width="1877" height="129" key="GridCell.Tab.3.left" timestamp="1584882972480">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.3.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972480" />
+    <state width="1877" height="129" key="GridCell.Tab.3.right" timestamp="1584882972480">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="129" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584882972480" />
+    <state x="332" y="187" width="998" height="708" key="SettingsEditor" timestamp="1584109476605">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="332" y="187" width="998" height="708" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584109476605" />
+    <state x="640" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1584366201453">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584366201453" />
+    <state x="592" y="231" width="938" height="600" key="find.popup" timestamp="1584625842167">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="592" y="231" width="938" height="600" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584625842167" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1584451956750">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584451956750" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1584976247493">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584976247493" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/bookmanager/src/main/java/com/chen/bookmanager/controller/PathParamsController.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.8.RELEASE/spring-web-5.1.8.RELEASE.jar!/org/springframework/web/context/ContextLoaderListener.class</url>
+          <line>19</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.8.RELEASE/spring-web-5.1.8.RELEASE.jar!/org/springframework/web/context/ContextLoaderListener.class</url>
+          <line>15</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.8.RELEASE/spring-web-5.1.8.RELEASE-sources.jar!/org/springframework/web/context/ContextLoaderListener.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.8.RELEASE/spring-web-5.1.8.RELEASE-sources.jar!/org/springframework/web/context/ContextLoaderListener.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/javaseDemo/src/main/java/observerPattern/Mouse.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/awt/Component.java</url>
+          <line>6535</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/javaseDemo/src/main/java/observerPattern/MyMouseListener.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/awt/AWTEventMulticaster.java</url>
+          <line>905</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/awt/Component.java</url>
+          <line>5723</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://C:/Program Files/Java/jdk1.8.0_161/src.zip!/java/util/concurrent/FutureTask.java</url>
+          <line>396</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/bookmanager/src/main/java/com/chen/bookmanager/aop/MyLog.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/bookmanager/src/main/java/com/chen/bookmanager/aop/MyLog.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/real-project/src/main/java/com/chen/realproject/apo/WebExceptionLogger.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/tkmybatis/src/test/java/com/chen/tkmybatis/TkmybatisApplicationTests.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/real-project/src/main/java/com/chen/realproject/controller/LoggerController.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/web-mvc/src/main/java/filter/TestFilter.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.4.RELEASE/spring-web-4.2.4.RELEASE-sources.jar!/org/springframework/web/context/ContextLoaderListener.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/javaseDemo/src/main/java/thread/Test.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.4.RELEASE/spring-web-4.2.4.RELEASE-sources.jar!/org/springframework/web/filter/CharacterEncodingFilter.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.9.RELEASE/spring-webmvc-5.1.9.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestResponseBodyMethodProcessor.java</url>
+          <line>174</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/bookmanager/src/main/java/com/chen/bookmanager/controller/PathParamsController.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.10.RELEASE/spring-webmvc-5.1.10.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java</url>
+          <line>494</line>
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/javaseDemo/src/main/java/Test.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="141" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/javaseDemo/src/main/java/Test.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.10.RELEASE/spring-webmvc-5.1.10.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java</url>
+          <line>910</line>
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/tkmybatis/src/main/java/com/chen/tkmybatis/po/FileUrl.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.10.RELEASE/spring-webmvc-5.1.10.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java</url>
+          <line>1039</line>
+          <option name="timeStamp" value="151" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.10.RELEASE/spring-webmvc-5.1.10.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java</url>
+          <line>852</line>
+          <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.10.RELEASE/spring-webmvc-5.1.10.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/AbstractMessageConverterMethodProcessor.java</url>
+          <line>281</line>
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://E:/java8/jdk/src.zip!/java/util/concurrent/ThreadPoolExecutor.java</url>
+          <line>2037</line>
+          <option name="timeStamp" value="170" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/bookmanager/src/main/java/com/chen/bookmanager/schedule/GetUpTask.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="176" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/alicp/jetcache/jetcache-anno/2.4.4/jetcache-anno-2.4.4-sources.jar!/com/alicp/jetcache/anno/config/ConfigSelector.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="177" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <condition expression="beanName.contains(&quot;userService&quot;)|| beanName.contains(&quot;nameService&quot;)" language="JAVA" />
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.2.RELEASE/spring-beans-5.2.2.RELEASE-sources.jar!/org/springframework/beans/factory/support/DefaultSingletonBeanRegistry.java</url>
+          <line>202</line>
+          <option name="timeStamp" value="190" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <condition expression="beanName.contains(&quot;userService&quot;)|| beanName.contains(&quot;nameService&quot;)" language="JAVA" />
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.2.RELEASE/spring-beans-5.2.2.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractBeanFactory.java</url>
+          <line>319</line>
+          <option name="timeStamp" value="200" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <condition expression="beanName.contains(&quot;userService&quot;)|| beanName.contains(&quot;nameService&quot;)" language="JAVA" />
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.2.RELEASE/spring-beans-5.2.2.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java</url>
+          <line>580</line>
+          <option name="timeStamp" value="202" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <condition expression="beanName.contains(&quot;userService&quot;)|| beanName.contains(&quot;nameService&quot;)" language="JAVA" />
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.2.RELEASE/spring-beans-5.2.2.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java</url>
+          <line>1369</line>
+          <option name="timeStamp" value="203" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <condition expression="beanName.contains(&quot;userService&quot;)|| beanName.contains(&quot;nameService&quot;)" language="JAVA" />
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.2.RELEASE/spring-beans-5.2.2.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractBeanFactory.java</url>
+          <line>248</line>
+          <option name="timeStamp" value="210" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/tkmybatis/src/main/java/com/chen/tkmybatis/downloader/ChromDriverWorker.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="213" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/tkmybatis/src/main/java/com/chen/tkmybatis/excelbean/ReadMapListner.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="244" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/update-excel/src/main/java/com/chen/excelbean/ExcelUtil.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="259" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/update-excel/src/main/java/com/chen/excelbean/Runner.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="266" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/update-excel/src/main/java/com/chen/excelbean/ExcelUtil.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="268" />
+        </line-breakpoint>
+        <line-breakpoint type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.2.RELEASE/spring-beans-5.2.2.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java</url>
+          <line>959</line>
+          <option name="timeStamp" value="270" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/2.0.1/mybatis-spring-2.0.1-sources.jar!/org/mybatis/spring/SqlSessionTemplate.java</url>
+          <line>317</line>
+          <option name="timeStamp" value="287" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/2.0.2/mybatis-spring-2.0.2-sources.jar!/org/mybatis/spring/SqlSessionTemplate.java</url>
+          <line>422</line>
+          <option name="timeStamp" value="291" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/2.0.2/mybatis-spring-2.0.2-sources.jar!/org/mybatis/spring/SqlSessionUtils.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="302" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.10.RELEASE/spring-context-5.1.10.RELEASE-sources.jar!/org/springframework/context/support/AbstractApplicationContext.java</url>
+          <line>530</line>
+          <option name="timeStamp" value="303" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/annotationcac/src/main/java/com/chen/annotationcac/conf/MybatisConfig.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="309" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/2.0.1/mybatis-spring-2.0.1-sources.jar!/org/mybatis/spring/mapper/MapperScannerConfigurer.java</url>
+          <line>213</line>
+          <option name="timeStamp" value="314" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/2.0.1/mybatis-spring-2.0.1-sources.jar!/org/mybatis/spring/mapper/MapperScannerConfigurer.java</url>
+          <line>230</line>
+          <option name="timeStamp" value="315" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.2.2.RELEASE/spring-context-5.2.2.RELEASE-sources.jar!/org/springframework/context/annotation/ClassPathBeanDefinitionScanner.java</url>
+          <line>275</line>
+          <option name="timeStamp" value="316" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/2.0.1/mybatis-spring-2.0.1-sources.jar!/org/mybatis/spring/mapper/ClassPathMapperScanner.java</url>
+          <line>167</line>
+          <option name="timeStamp" value="318" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/annotationcac/src/main/java/com/chen/annotationcac/Mybatis_Spring_Test.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="320" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/2.0.1/mybatis-spring-2.0.1-sources.jar!/org/mybatis/spring/mapper/MapperScannerConfigurer.java</url>
+          <line>319</line>
+          <option name="timeStamp" value="322" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis-spring/2.0.2/mybatis-spring-2.0.2-sources.jar!/org/mybatis/spring/mapper/MapperScannerConfigurer.java</url>
+          <line>319</line>
+          <option name="timeStamp" value="323" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-autoconfigure/2.1.8.RELEASE/spring-boot-autoconfigure-2.1.8.RELEASE-sources.jar!/org/springframework/boot/autoconfigure/jdbc/DataSourceProperties.java</url>
+          <line>342</line>
+          <option name="timeStamp" value="324" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/annotationcac/src/main/java/com/chen/annotationcac/bean/MySimpleMapper.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="325" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/javaseDemo/src/main/java/nio/Test.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="326" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/javaseDemo/src/main/java/nio/Test.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="327" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.2.2.RELEASE/spring-context-5.2.2.RELEASE-sources.jar!/org/springframework/context/annotation/ConfigurationClassParser.java</url>
+          <line>887</line>
+          <option name="timeStamp" value="329" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/javaseDemo/src/main/java/dataStruct/TreeForeachTest.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="338" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ex-io/src/main/java/poi/PoiUtil.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="345" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ex-io/src/main/java/poi/PoiUtilGraph.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="348" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ex-io/src/main/java/poi/PoiUtilGraph.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="354" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://E:/java8/jdk/src.zip!/java/util/concurrent/atomic/AtomicStampedReference.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="358" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://E:/java8/jdk/src.zip!/java/util/concurrent/atomic/AtomicStampedReference.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="361" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/spring-tomcat/src/main/java/com/chen/MyWebApplicationInitializer.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="362" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.8.RELEASE/spring-web-5.1.8.RELEASE-sources.jar!/org/springframework/web/SpringServletContainerInitializer.java</url>
+          <line>143</line>
+          <option name="timeStamp" value="364" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/spring-tomcat/src/main/java/com/chen/Runner.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="365" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/javaseDemo/src/main/java/thread/FutureTask_con.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="371" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/javaseDemo/src/main/java/dataStruct/TreeTest.java</url>
+          <line>385</line>
+          <option name="timeStamp" value="387" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/javaseDemo/src/main/java/dataStruct/TreeTest.java</url>
+          <line>347</line>
+          <option name="timeStamp" value="388" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/web-mvc/src/main/java/com/chen/listener/MyListener.java</url>
+          <line>7</line>
+          <properties class="com.chen.listener.MyListener">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/tkmybatis/src/test/java/com/chen/tkmybatis/TkmybatisApplicationTests.java</url>
+          <line>64</line>
+          <properties class="com.chen.tkmybatis.TkmybatisApplicationTests">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.5.2/mybatis-3.5.2-sources.jar!/org/apache/ibatis/binding/MapperProxy.java</url>
+          <line>45</line>
+          <properties class="org.apache.ibatis.binding.MapperProxy" method="invoke">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="299" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>atomicStampedReference.getStamp()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>casPair(current, Pair.of(expectedReference, newStamp)));</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>casPair(current, Pair.of(expectedReference, newStamp+1))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>casPair(current, Pair.of(expectedReference, newStamp))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>expectedReference == current.reference</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>casPair(current, Pair.of(newReference, newStamp)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>expectedReference == current.reference &amp;&amp;
+            expectedStamp == current.stamp</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>current.reference</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>1L &lt;&lt; bitIndex</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="breakpointCondition">
+      <expression>
+        <expression-string>newReference.equals(129)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>beanName.contains(&quot;userService&quot;)|| beanName.contains(&quot;nameService&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>count==200 || count == 400</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>name.contains(&quot;uservice&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>beanName.contains(&quot;userService&quot;)||beanName.contains(&quot;nameService&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>name.contains(&quot;user&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>count ==200 || count ==400 || count==512</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>count ==200 || count ==400 || count==300</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>count ==200 || count ==400</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>count==200 || count ==400</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="breakpointLogExpression">
+      <expression>
+        <expression-string>sum</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="setValue">
+      <expression>
+        <expression-string>&quot;F:\\桌面\\pack\\line.xlsx&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&quot;https://www.21cnjy.com/H/9/49094/5401230.shtml&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>200</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&quot;https://www.21cnjy.com/H/9/49088/5517016.shtml&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&quot;https://www.21cnjy.com/H/9/49078/5064400.shtml&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&quot;https://www.21cnjy.com/H/9/144752/4992352.shtml&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&quot;https://www.21cnjy.com/H/9/144724/4759156.shtml&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>&quot;https://www.21cnjy.com/H/9/144732/6274076.shtml&quot;</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>310</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>System.out.println(proxy.toString())</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>proxy.toString()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>proxy</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>proxyHander.getProxy() instanceof  Rent</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>proxyHander instanceof  Rent</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>spring-mvc:war exploded</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.16233766" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web (bookmanager)|Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.16233766" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.16233766" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.16233766" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>annotationcac</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.16233766" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: org.springframework:spring-test:5.1.8.RELEASE</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.16233766" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

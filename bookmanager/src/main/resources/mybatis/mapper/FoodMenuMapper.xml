@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chen.bookmanager.dao.food.FoodMenuMapper">
+    
+
+    <cache></cache>
+    <select id="getMenus" resultType="com.chen.bookmanager.model.foodorder.Menu">
+        select * from menu group by price
+    </select>
+    <update id="updateMenuPrice" parameterType="com.chen.bookmanager.model.foodorder.Menu">
+        update menu set price  = #{price} where id = #{id}
+    </update>
+
+    <update id="save" parameterType="com.chen.bookmanager.model.foodorder.Menu">
+        insert into menu(id,name,price,is_delete) values (#{price},#{name},#{price},#{delete})
+    </update>
+</mapper>

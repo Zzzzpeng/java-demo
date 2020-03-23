@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+    <property name="PATTERN" value="%-12(%d{yyyy-MM-dd HH:mm:ss.SSS}) |-%level [%thread] %c [%L] -| %msg%n" />
+    <property name="LOCAL_PATH" value="H:/log/real-pro/" />
+    <property name="DEV_PATH" value="/tmp/log/crypto_base_server/" />
+    <property name="PROD_PATH" value="/var/logs/crypto_base_server/" />
+
+    <!-- 本地配置 -->
+    <springProfile name="local">
+        <appender name="LOCAL_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${LOCAL_PATH}portal.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <!-- 文件名称 -->
+                <fileNamePattern>${LOCAL_PATH}portal.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <MaxHistory>60</MaxHistory>
+            </rollingPolicy>
+
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+            <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                <level>ERROR</level>
+            </filter>
+        </appender>
+
+        <appender name="LOCAL_APPENDER_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${LOCAL_PATH}portal-info.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <!-- 文件名称 -->
+                <fileNamePattern>${LOCAL_PATH}portal-info.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <MaxHistory>60</MaxHistory>
+            </rollingPolicy>
+
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+            <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+                <level>INFO</level>
+            </filter>
+        </appender>
+
+        <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>${PATTERN}</pattern>
+            </encoder>
+        </appender>
+
+        <!--<logger name="com.chen.realproject.controller" level="ERROR"/>-->
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="LOCAL_APPENDER"/>
+            <appender-ref ref="LOCAL_APPENDER_INFO"/>
+        </root>
+    </springProfile>
+
+
+    <!-- 测试环境 -->
+    <springProfile name="dev">
+        <appender name="DEV_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${DEV_PATH}/portal.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${DEV_PATH}/portal.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <MaxHistory>60</MaxHistory>
+            </rollingPolicy>
+
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+
+        <root level="info">
+            <appender-ref ref="DEV_APPENDER" />
+        </root>
+
+    </springProfile>
+    <!-- 生产环境 -->
+    <springProfile name="prod">
+        <appender name="PROD_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${PROD_PATH}/portal.log</file>
+            <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+                <fileNamePattern>${PROD_PATH}/portal-%d{yyyy-MM}/portal.%d{yyyy-MM-dd}.log</fileNamePattern>
+                <MaxHistory>60</MaxHistory>
+            </rollingPolicy>
+
+            <layout class="ch.qos.logback.classic.PatternLayout">
+                <pattern>${PATTERN}</pattern>
+            </layout>
+        </appender>
+
+        <appender name="REMOTE_APPENDER" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+            <destination>172.18.0.4:9001</destination>
+            <encoder charset="UTF-8" class="net.logstash.logback.encoder.LogstashEncoder" />
+        </appender>
+
+        <root level="info">
+            <appender-ref ref="PROD_APPENDER" />
+        </root>
+
+
+        <logger name="com.beidd.auto" level="error">
+            <appender-ref ref="REMOTE_APPENDER" />
+        </logger>
+    </springProfile>
+</configuration>
+

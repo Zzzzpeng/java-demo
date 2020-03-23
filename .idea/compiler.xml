@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sharding-jdbc-demo" />
+        <module name="tkmybatis" />
+        <module name="hibernatedemo" />
+        <module name="spring-tomcat" />
+        <module name="update-excel" />
+        <module name="ex-io" />
+        <module name="javaseDemo" />
+        <module name="bookmanager" />
+        <module name="annotationcac" />
+        <module name="real-project" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="8">
+      <module name="mail-task" target="1.8" />
+      <module name="path" target="1.8" />
+      <module name="spring-mvc" target="1.8" />
+      <module name="web-mvc" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="annotationcac" options="-parameters" />
+      <module name="bookmanager" options="-parameters" />
+      <module name="hibernatedemo" options="-parameters" />
+      <module name="real-project" options="-parameters" />
+      <module name="sharding-jdbc-demo" options="-parameters" />
+      <module name="tkmybatis" options="-parameters" />
+    </option>
+  </component>
+</project>
