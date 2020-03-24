@@ -198,6 +198,7 @@ public class TreeTest {
                         bro.color = RED;
                         x = x.parent;
                     }
+                    //情况三
 
                 }//对称情况
                 else {
