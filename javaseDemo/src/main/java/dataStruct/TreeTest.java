@@ -38,6 +38,9 @@ public class TreeTest {
             return note;
         }
 
+        static boolean colorOf(TreeNote note){
+            return note == null ? BLACK : note.color;
+        }
         //左旋
         void leftRotate(TreeNote x) {
             if (x == null || x.right == null)
@@ -176,8 +179,32 @@ public class TreeTest {
             }
         }
 
-        void rb_deleteNote_fixUp(TreeNote x){
+        void rb_deleteNote_fixUp(TreeNote x) {
+            if(x == null)
+                return;
+            //当x不是跟且是黑色节点才进入
+            //此时x必有兄弟节点,且x父节点为起点黑高必>=2(因为x为双黑,如为红黑就不进入循环)
+            while (root != x && x.color == BLACK) {
+                if(x == x.parent.left){
+                    TreeNote bro = x.parent.right;
+                    //情况一,旋转+着色
+                    if(colorOf(bro) == RED){
+                        x.parent.color = RED;
+                        bro.color = BLACK;
+                        leftRotate(x.parent);
+                    }
+                    //情况二
+                    if(colorOf(bro) == BLACK && colorOf(bro.left) ==BLACK && colorOf(bro.right) == BLACK){
+                        bro.color = RED;
+                        x = x.parent;
+                    }
 
+                }//对称情况
+                else {
+
+                }
+            }
+            x.color = RED;
         }
 
 
