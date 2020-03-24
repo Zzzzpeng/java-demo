@@ -1,6 +1,0 @@
-GET http://localhost:8080/servlet
-Accept: */*
-Cache-Control: no-cache
-
-###
-
