@@ -63,7 +63,7 @@ public class TreeTest {
                 x.parent.right = y;
             }
 
-            y.right = x;
+            y.left = x;
             x.parent = y;
         }
 
@@ -324,7 +324,7 @@ public class TreeTest {
             }
         }
 
-        void rb_insert(int value){
+        void rb_insert(int value) {
             TreeNote current = root;
             TreeNote p = null;
             while (current != null) {
@@ -347,23 +347,23 @@ public class TreeTest {
             newOne.color = RED;
             rb_insertFixUp(newOne);
         }
-        void rb_insertFixUp(TreeNote z){
+
+        void rb_insertFixUp(TreeNote z) {
             if (z == null) {
                 return;
             }
             //以叔节点的颜色进行讨论, 大前提:父节点为红色,则父节点必定不是根,z.p.p不为null
-            while (z.parent!=null && z.parent.color == RED) {
+            while (z.parent != null && z.parent.color == RED) {
                 TreeNote y;
                 if (z.parent == z.parent.parent.left) {
                     y = z.parent.parent.right;
-                    if(y.color == RED){
+                    if (y != null && y.color == RED) {
                         y.color = BLACK;
                         z.parent.color = BLACK;
                         z.parent.parent.color = RED;
                         z = z.parent.parent;
-                    }
-                    else{
-                        if(z == z.parent.right){
+                    } else {
+                        if (z == z.parent.right) {
                             z = z.parent;
                             leftRotate(z);
                         }
@@ -374,14 +374,13 @@ public class TreeTest {
 
                 } else {
                     y = z.parent.parent.left;
-                    if(y.color == RED){
+                    if (y != null && y.color == RED) {
                         y.color = BLACK;
                         z.parent.color = BLACK;
                         z.parent.parent.color = RED;
                         z = z.parent.parent;
-                    }
-                    else{
-                        if(z == z.parent.left){
+                    } else {
+                        if (z == z.parent.left) {
                             z = z.parent;
                             rightRotate(z);
                         }
@@ -393,6 +392,7 @@ public class TreeTest {
             }
             root.color = BLACK;
         }
+
         private void inOrderTravel() {
             inOrderTravel(root);
         }
@@ -486,7 +486,7 @@ public class TreeTest {
         TreeMap treeMap = new TreeMap();
         treeMap.put(1, 5);
 //        treeMap.remove()
-        test2();
+        rb_insert_test();
     }
 
     static void test1() {
@@ -518,6 +518,18 @@ public class TreeTest {
         int[] nums = {15, 6, 3, 2, 4, 7, 13, 9, 18, 17, 20};
         for (int num : nums) {
             myTree.insert(num);
+        }
+        myTree.inOrderTravel();
+        System.out.println();
+        myTree.deleteNote(6);
+        myTree.inOrderTravel();
+    }
+
+    static void rb_insert_test() {
+        MyTree myTree = new MyTree();
+        int[] nums = {41, 38, 31, 12, 19, 8};
+        for (int num : nums) {
+            myTree.rb_insert(num);
         }
         myTree.inOrderTravel();
         System.out.println();
