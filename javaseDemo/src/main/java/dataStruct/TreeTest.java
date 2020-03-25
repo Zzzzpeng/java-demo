@@ -12,6 +12,7 @@ public class TreeTest {
         TreeNote right;
         TreeNote parent;
         boolean color;
+
         public TreeNote(int data) {
             this.data = data;
         }
@@ -38,9 +39,10 @@ public class TreeTest {
             return note;
         }
 
-        static boolean colorOf(TreeNote note){
+        static boolean colorOf(TreeNote note) {
             return note == null ? BLACK : note.color;
         }
+
         //左旋
         void leftRotate(TreeNote x) {
             if (x == null || x.right == null)
@@ -151,15 +153,13 @@ public class TreeTest {
             TreeNote x;
             TreeNote y = z;
             boolean y_originColor = y.color;
-            if (z.left == null){
+            if (z.left == null) {
                 x = z.right;
                 transplant(z, z.right);
-            }
-            else if (z.right == null){
+            } else if (z.right == null) {
                 x = z.left;
                 transplant(z, z.left);
-            }
-            else {
+            } else {
                 //如果有两个子节点
                 y = getSuccessor(z);
                 x = y.right;
@@ -174,35 +174,78 @@ public class TreeTest {
                 z.left.parent = y;
                 y.color = z.color;
             }
-            if(y_originColor == BLACK){
+            if (y_originColor == BLACK) {
                 rb_deleteNote_fixUp(x);
             }
         }
 
         void rb_deleteNote_fixUp(TreeNote x) {
-            if(x == null)
+            if (x == null)
                 return;
             //当x不是跟且是黑色节点才进入
             //此时x必有兄弟节点,且x父节点为起点黑高必>=2(因为x为双黑,如为红黑就不进入循环)
             while (root != x && x.color == BLACK) {
-                if(x == x.parent.left){
+                if (x == x.parent.left) {
                     TreeNote bro = x.parent.right;
                     //情况一,旋转+着色
-                    if(colorOf(bro) == RED){
+                    if (colorOf(bro) == RED) {
                         x.parent.color = RED;
                         bro.color = BLACK;
+                        bro = bro.left;
                         leftRotate(x.parent);
                     }
                     //情况二
-                    if(colorOf(bro) == BLACK && colorOf(bro.left) ==BLACK && colorOf(bro.right) == BLACK){
+                    if (colorOf(bro.left) == BLACK && colorOf(bro.right) == BLACK
+                        /*&&colorOf(bro) == BLACK 思考为什么可以省略*/) {
                         bro.color = RED;
                         x = x.parent;
+                        /*bro = x.parent.right;错误,要考虑null*/
+                    } else {
+                        //情况三
+                        if (colorOf(bro.right) == BLACK /*&& colorOf(bro.left) == RED 思考为什么可以省略*/) {
+                            bro.left.color = BLACK;
+                            bro.color = RED;
+                            rightRotate(bro);
+                            bro = x.parent.right;
+                        }
+                        //情况四
+                        bro.color = bro.parent.color;
+                        bro.parent.color = BLACK;
+                        bro.right.color = BLACK;
+                        leftRotate(x.parent);
+                        x = root;
                     }
-                    //情况三
 
                 }//对称情况
                 else {
-
+                    TreeNote bro = x.parent.left;
+                    //情况一,旋转+着色
+                    if (colorOf(bro) == RED) {
+                        x.parent.color = RED;
+                        bro.color = BLACK;
+                        rightRotate(x.parent);
+                        bro = x.parent.left;
+                    }
+                    //情况二
+                    if (/*colorOf(bro) == BLACK &&*/ colorOf(bro.left) == BLACK && colorOf(bro.right) == BLACK) {
+                        bro.color = RED;
+                        x = x.parent;
+                        /*bro = x.parent.right;错误,要考虑null*/
+                    } else {
+                        //情况三
+                        if (colorOf(bro.left) == BLACK) {
+                            bro.right.color = BLACK;
+                            bro.color = RED;
+                            leftRotate(bro);
+                            bro = x.parent.left;
+                        }
+                        //情况四
+                        bro.color = bro.parent.color;
+                        bro.parent.color = BLACK;
+                        bro.left.color = BLACK;
+                        rightRotate(x.parent);
+                        x = root;
+                    }
                 }
             }
             x.color = RED;
@@ -261,7 +304,6 @@ public class TreeTest {
         //迭代式插入
         void insert(int value) {
             TreeNote current = root;
-
             TreeNote p = null;
             while (current != null) {
                 p = current;
@@ -282,6 +324,75 @@ public class TreeTest {
             }
         }
 
+        void rb_insert(int value){
+            TreeNote current = root;
+            TreeNote p = null;
+            while (current != null) {
+                p = current;
+                if (value < current.data)
+                    current = current.left;
+                else if (value > current.data)
+                    current = current.right;
+                else return;
+            }
+            TreeNote newOne = new TreeNote(value);
+            newOne.parent = p;
+            if (p == null) {
+                root = newOne;
+            } else if (value < p.data) {
+                p.left = newOne;
+            } else { // (value > p.data)
+                p.right = newOne;
+            }
+            newOne.color = RED;
+            rb_insertFixUp(newOne);
+        }
+        void rb_insertFixUp(TreeNote z){
+            if (z == null) {
+                return;
+            }
+            //以叔节点的颜色进行讨论, 大前提:父节点为红色,则父节点必定不是根,z.p.p不为null
+            while (z.parent!=null && z.parent.color == RED) {
+                TreeNote y;
+                if (z.parent == z.parent.parent.left) {
+                    y = z.parent.parent.right;
+                    if(y.color == RED){
+                        y.color = BLACK;
+                        z.parent.color = BLACK;
+                        z.parent.parent.color = RED;
+                        z = z.parent.parent;
+                    }
+                    else{
+                        if(z == z.parent.right){
+                            z = z.parent;
+                            leftRotate(z);
+                        }
+                        z.parent.color = BLACK;
+                        z.parent.parent.color = RED;
+                        rightRotate(z.parent.parent);
+                    }
+
+                } else {
+                    y = z.parent.parent.left;
+                    if(y.color == RED){
+                        y.color = BLACK;
+                        z.parent.color = BLACK;
+                        z.parent.parent.color = RED;
+                        z = z.parent.parent;
+                    }
+                    else{
+                        if(z == z.parent.left){
+                            z = z.parent;
+                            rightRotate(z);
+                        }
+                        z.parent.color = BLACK;
+                        z.parent.parent.color = RED;
+                        leftRotate(z.parent.parent);
+                    }
+                }
+            }
+            root.color = BLACK;
+        }
         private void inOrderTravel() {
             inOrderTravel(root);
         }
