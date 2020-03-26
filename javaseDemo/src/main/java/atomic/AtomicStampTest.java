@@ -16,7 +16,8 @@ public class AtomicStampTest {
                 while (true) {
                     final int timeStamp = atomicStampedReference.getStamp();
                     Integer current = atomicStampedReference.getReference();
-                    if (atomicStampedReference.compareAndSet(current, current + 1, timeStamp, timeStamp + 1)){
+                    if (atomicStampedReference.compareAndSet(current, current + 1,
+                            timeStamp, timeStamp + 1)){
                         break;
                     }else {
                         System.out.println(atomicStampedReference.getReference());

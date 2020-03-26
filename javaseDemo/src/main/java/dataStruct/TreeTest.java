@@ -1,5 +1,6 @@
 package dataStruct;
 
+import java.util.HashMap;
 import java.util.TreeMap;
 
 public class TreeTest {
@@ -153,12 +154,27 @@ public class TreeTest {
             TreeNote x;
             TreeNote y = z;
             boolean y_originColor = y.color;
-            if (z.left == null) {
-                x = z.right;
-                transplant(z, z.right);
-            } else if (z.right == null) {
-                x = z.left;
-                transplant(z, z.left);
+            if (z.left == null || z.right == null) {
+                if (z.right != null) {
+                    x = z.right;
+                    transplant(z, z.right);
+                } else if (z.left != null) {
+                    x = z.left;
+                    transplant(z, z.left);
+                }//如果z没有子节点
+                else {
+                    x = z;
+                    if (x.color == BLACK)
+                        rb_deleteNote_fixUp(x);
+                    if (x.parent == null) {
+                        root = null;
+                    } else if (x == x.parent.left) {
+                        x.parent.left = null;
+                    } else {
+                        x.parent.right = null;
+                    }
+                    return;
+                }
             } else {
                 //如果有两个子节点
                 y = getSuccessor(z);
@@ -180,10 +196,11 @@ public class TreeTest {
         }
 
         void rb_deleteNote_fixUp(TreeNote x) {
-            if (x == null)
-                return;
+//            if (x == null)
+//                return;
             //当x不是跟且是黑色节点才进入
             //此时x必有兄弟节点,且x父节点为起点黑高必>=2(因为x为双黑,如为红黑就不进入循环)
+            //注意x可能为叶子节点，即null
             while (root != x && x.color == BLACK) {
                 if (x == x.parent.left) {
                     TreeNote bro = x.parent.right;
@@ -248,7 +265,7 @@ public class TreeTest {
                     }
                 }
             }
-            x.color = RED;
+            x.color = BLACK;
         }
 
 
@@ -400,7 +417,8 @@ public class TreeTest {
         private void inOrderTravel(TreeNote current) {
             if (current != null) {
                 inOrderTravel(current.left);
-                System.out.print(current.data + "  ");
+                String color = current.color ? "黑" : "红";
+                System.out.print(current.data + color + "  ");
                 inOrderTravel(current.right);
             }
         }
@@ -484,9 +502,15 @@ public class TreeTest {
 
     public static void main(String[] args) {
         TreeMap treeMap = new TreeMap();
-        treeMap.put(1, 5);
+        int[] nums = {41, 38, 31, 12, 19, 8};
+        for (int num : nums) {
+            treeMap.put(num, num);
+        }
+        treeMap.remove(8);
+        treeMap.remove(12);
 //        treeMap.remove()
         rb_insert_test();
+
     }
 
     static void test1() {
@@ -532,8 +556,25 @@ public class TreeTest {
             myTree.rb_insert(num);
         }
         myTree.inOrderTravel();
+
+        myTree.rb_deleteNote(8);
         System.out.println();
-        myTree.deleteNote(6);
+        myTree.inOrderTravel();
+
+        myTree.rb_deleteNote(12);
+        System.out.println();
+        myTree.inOrderTravel();
+
+        myTree.rb_deleteNote(19);
+        System.out.println();
+        myTree.inOrderTravel();
+
+        myTree.rb_deleteNote(31);
+        System.out.println();
+        myTree.inOrderTravel();
+
+        myTree.rb_deleteNote(38);
+        System.out.println();
         myTree.inOrderTravel();
     }
 
