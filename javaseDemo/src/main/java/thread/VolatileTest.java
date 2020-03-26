@@ -1,0 +1,59 @@
+package thread;
+
+import java.io.Reader;
+
+public class VolatileTest  {
+
+
+    static class Reader extends Thread {
+          int[] nums = {1, 2};
+         boolean goon = true;
+         volatile int age = 3;
+        void update(){
+            System.out.println("update");
+            goon = false;
+            nums[0] = 0;
+        }
+        @Override
+        public void run() {
+            int i = 0;
+            while (nums[0] == 1) {
+                i+=1;
+            }
+            System.out.println(i);
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        Reader reader = new Reader();
+        reader.start();
+        Thread.sleep(200);
+        new Thread(() -> reader.update()).start();
+
+    }
+
+
+//    boolean stop = false;
+	 boolean stop = false;
+
+//    public static void main(String[] args) throws Exception{
+//        VolatileTest v = new VolatileTest();
+//        Thread ta = new Thread(()->v.execute());
+//        ta.start();
+//        Thread.sleep(20);
+//        Thread tb = new Thread(()->v.shutdown());
+//        tb.start();
+//    }
+
+    public void execute(){
+        while(!stop){
+            String a = "a";
+//			System.out.print("");
+        }
+    }
+    public void shutdown(){
+        System.out.println("do stop");
+        stop = true;
+    }
+
+}
