@@ -1,35 +1,40 @@
 package thread;
 
-import java.io.Reader;
-
 public class VolatileTest  {
 
 
     static class Reader extends Thread {
-          int[] nums = {1, 2};
+         volatile int[] nums = {1, 2};
          boolean goon = true;
-         volatile int age = 3;
+//         volatile int age = 3;
         void update(){
             System.out.println("update");
+            System.out.println(System.currentTimeMillis());
             goon = false;
             nums[0] = 0;
         }
         @Override
         public void run() {
             int i = 0;
-            while (nums[0] == 1) {
+            while (nums[0] == 1 || pt()) {
                 i+=1;
             }
             System.out.println(i);
+        }
+        public boolean pt(){
+//            System.out.println(System.currentTimeMillis());
+            return false;
         }
     }
 
     public static void main(String[] args) throws InterruptedException {
         Reader reader = new Reader();
-        reader.start();
-        Thread.sleep(200);
+        for (int i = 0; i < 50; i++) {
+            new Thread(() -> reader.run()).start();
+        }
+//        reader.start();
+        Thread.sleep(800);
         new Thread(() -> reader.update()).start();
-
     }
 
 
