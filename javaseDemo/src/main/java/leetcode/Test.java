@@ -247,8 +247,8 @@ public class Test {
             }
             return res;
         }
+        //翻转数字，溢出则返回0,不能用long，double等64位变量
         public int reverse(int x) {
-
             int res = 0;
            while (x!=0){
                res = 10*res + x%10;
