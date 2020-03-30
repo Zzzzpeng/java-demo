@@ -1,8 +1,7 @@
 package leetcode;
 
 import javax.rmi.CORBA.Util;
-import java.util.Arrays;
-import java.util.Random;
+import java.util.*;
 
 public class Test {
     //求回文子串-暴力法
@@ -77,7 +76,12 @@ public class Test {
 
 
 //        findMedianSortedArrays(new int[]{1, 2, 2}, new int[]{1, 2, 3});
-        compare();
+//        compare();
+//        System.out.println(lengthOfLongestSubstring("abcca"));
+        System.out.println(new Test().new Solution().myAtoi("9223372036854775808"));
+//        System.out.println((char)0x30);
+//        System.out.println((char)0x41);
+//        System.out.println((char)0x61);
     }
 
 
@@ -164,6 +168,100 @@ public class Test {
             System.out.println(findMedianSortedArrays(num1,num2));
             System.out.println("time:"+ (System.currentTimeMillis() - s1));
         }
+    }
+    static int[] getSumIndex(int[] nums,int sum){
+        Map<Integer, Integer> map = new HashMap<>();
+        int target;
+        for (int i = 0; nums != null && i < nums.length; i++) {
+            target = sum - nums[i];
+            if(map.get(target)==null){
+                map.put(nums[i], i);
+            }else{
+                return new int[]{map.get(target), i};
+            }
+        }
+        return null;
+    }
+    //不重复字符串
+    public static  int lengthOfLongestSubstring(String s) {
+        int max = 0;
+        char[] chars = s.toCharArray();
+        byte[] bytes = new byte[128];//假设是正常字符 asii码0-127
+        int rightIdx  = 0;
+        for (int i = 0;  i < chars.length; i++) {
+            for (; rightIdx < chars.length; rightIdx++) {
+                if(bytes[chars[rightIdx]] != 0){
+                    break;
+                }else {
+                    bytes[chars[rightIdx]] = 1;
+                    max = rightIdx - i + 1 > max ? rightIdx - i + 1: max;
+                }
+            }
+            bytes[chars[i]] = 0;
+        }
+        return max;
+    }
+    class Solution {
+        public int myAtoi(String str) {
+            char[] src = str.toCharArray();
+            int left = -1, right = -1;
+            for(int i = 0;i<src.length;i++){
+                if(src[i]==' ')
+                    continue;
+                if(src[i] >= 0x30 && src[i] <= 0x39 || src[i]=='-' || src[i] =='+'){
+                    left = i;
+                    break;
+                }
+                return 0;
+            }
+            right = left;
+            for(int i = left + 1 ;i<src.length;i++){
+                if(!(src[i] >= 0x30 && src[i] <= 0x39)){
+                    break;
+                }
+                right = i;
+            }
+            if(left == -1)
+                return 0;
+            //考虑正常情况
+            boolean fu = false;
+            if( src[left]=='-' || src[left] =='+'){
+                if(src[left]=='-')
+                    fu = true;
+                left++;
+            }
+            int res = 0;
+            for(;left <= right; left++){
+                if(res > Integer.MAX_VALUE/10 ||
+                        (res == Integer.MAX_VALUE/10)&&(src[left]-0x30 > 7)&&!fu){
+                    return Integer.MAX_VALUE;
+                }
+                if(res < Integer.MIN_VALUE/10 ||
+                        (res == Integer.MIN_VALUE/10)&&(src[left]-0x30 > 8)&&fu){
+                    return Integer.MIN_VALUE;
+                }
+                if(fu)
+                    res = res*10 - (src[left]-0x30);
+                else
+                    res = res*10 + (src[left]-0x30);
+            }
+            return res;
+        }
+        public int reverse(int x) {
 
+            int res = 0;
+           while (x!=0){
+               res = 10*res + x%10;
+               x /= 10;
+               if((res  >= Integer.MAX_VALUE/10 || res <=Integer.MIN_VALUE/10) && x!=0){
+                   if(res  == Integer.MAX_VALUE/10 && x%10 < Integer.MAX_VALUE%10 ||
+                        res  == Integer.MIN_VALUE/10 && x%10 > Integer.MIN_VALUE%10){
+                       continue;
+                   }
+                   return 0;
+               }
+           }
+           return res;
+        }
     }
 }
