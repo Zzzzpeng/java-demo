@@ -2,6 +2,8 @@ package leetcode;
 
 import javax.rmi.CORBA.Util;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Test {
     //求回文子串-暴力法
@@ -78,7 +80,7 @@ public class Test {
 //        findMedianSortedArrays(new int[]{1, 2, 2}, new int[]{1, 2, 3});
 //        compare();
 //        System.out.println(lengthOfLongestSubstring("abcca"));
-        System.out.println(new Test().new Solution().myAtoi("9223372036854775808"));
+        System.out.println(new Test().new Solution().myAtoi("    922ww3372036854775808"));
 //        System.out.println((char)0x30);
 //        System.out.println((char)0x41);
 //        System.out.println((char)0x61);
@@ -205,24 +207,17 @@ public class Test {
         public int myAtoi(String str) {
             char[] src = str.toCharArray();
             int left = -1, right = -1;
-            for(int i = 0;i<src.length;i++){
-                if(src[i]==' ')
-                    continue;
-                if(src[i] >= 0x30 && src[i] <= 0x39 || src[i]=='-' || src[i] =='+'){
-                    left = i;
-                    break;
-                }
+            String reg = " *[\\+\\-]{0,1}\\d+(?=.*)";
+            java.util.regex.Pattern pattern = Pattern.compile(reg);
+            java.util.regex.Matcher matcher = pattern.matcher(str);
+            if(!matcher.matches()){
                 return 0;
+            }else{
+                matcher.reset();
+                matcher.find();
+                left = matcher.start();
+                right = matcher.end() - 1;
             }
-            right = left;
-            for(int i = left + 1 ;i<src.length;i++){
-                if(!(src[i] >= 0x30 && src[i] <= 0x39)){
-                    break;
-                }
-                right = i;
-            }
-            if(left == -1)
-                return 0;
             //考虑正常情况
             boolean fu = false;
             if( src[left]=='-' || src[left] =='+'){
@@ -247,6 +242,52 @@ public class Test {
             }
             return res;
         }
+
+//        public int myAtoi(String str) {
+//            char[] src = str.toCharArray();
+//            int left = -1, right = -1;
+//            for(int i = 0;i<src.length;i++){
+//                if(src[i]==' ')
+//                    continue;
+//                if(src[i] >= 0x30 && src[i] <= 0x39 || src[i]=='-' || src[i] =='+'){
+//                    left = i;
+//                    break;
+//                }
+//                return 0;
+//            }
+//            right = left;
+//            for(int i = left + 1 ;i<src.length;i++){
+//                if(!(src[i] >= 0x30 && src[i] <= 0x39)){
+//                    break;
+//                }
+//                right = i;
+//            }
+//            if(left == -1)
+//                return 0;
+//            //考虑正常情况
+//            boolean fu = false;
+//            if( src[left]=='-' || src[left] =='+'){
+//                if(src[left]=='-')
+//                    fu = true;
+//                left++;
+//            }
+//            int res = 0;
+//            for(;left <= right; left++){
+//                if(res > Integer.MAX_VALUE/10 ||
+//                        (res == Integer.MAX_VALUE/10)&&(src[left]-0x30 > 7)&&!fu){
+//                    return Integer.MAX_VALUE;
+//                }
+//                if(res < Integer.MIN_VALUE/10 ||
+//                        (res == Integer.MIN_VALUE/10)&&(src[left]-0x30 > 8)&&fu){
+//                    return Integer.MIN_VALUE;
+//                }
+//                if(fu)
+//                    res = res*10 - (src[left]-0x30);
+//                else
+//                    res = res*10 + (src[left]-0x30);
+//            }
+//            return res;
+//        }
         //翻转数字，溢出则返回0,不能用long，double等64位变量
         public int reverse(int x) {
             int res = 0;
