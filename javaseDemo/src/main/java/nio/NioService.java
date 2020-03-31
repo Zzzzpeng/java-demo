@@ -66,7 +66,7 @@ public class NioService {
                             content += new String(bytes);
                             System.out.println(channel.getRemoteAddress() + "发来以下内容: " + content);
                             //回应客户端
-                            doWriteToOther(content, selector);
+                            doWriteToOther(content, selector,channel);
                         }
 
                         // 写完就把状态关注去掉，否则会一直触发写事件(改变自身关注事件)
@@ -95,14 +95,14 @@ public class NioService {
         }
     }
 
-    private void doWriteToOther(String msg, Selector selector) throws IOException {
+    private void doWriteToOther(String msg, Selector selector,Channel itself) throws IOException {
         Set<SelectionKey> selectionKeys = selector.keys();
         Iterator<SelectionKey> iterator = selectionKeys.iterator();
         ByteBuffer buffer = ByteBuffer.wrap(String.valueOf(msg).getBytes());
         while (iterator.hasNext()) {
             SelectionKey key = iterator.next();
             SelectableChannel channel = key.channel();
-            if (channel instanceof SocketChannel) {
+            if (channel instanceof SocketChannel && channel != itself) {
                 SocketChannel socketChannel = (SocketChannel) channel;
                 buffer.rewind();
                 socketChannel.write(buffer);
