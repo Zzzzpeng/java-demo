@@ -3,22 +3,25 @@ package nio;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
 import java.nio.charset.Charset;
 import java.util.Iterator;
 import java.util.Set;
 
 public class NioService {
+    public static void main(String[] args) throws IOException {
+        new NioService().init();
+    }
+
+    static int ichar = 'f';
+
     public void init() throws IOException {
         Charset charset = Charset.forName("UTF-8");
         // 创建一个选择器，可用close()关闭，isOpen()表示是否处于打开状态，他不隶属于当前线程
         Selector selector = Selector.open();
         // 创建ServerSocketChannel，并把它绑定到指定端口上
         ServerSocketChannel server = ServerSocketChannel.open();
-        server.socket().bind(new InetSocketAddress(7777), 1024);
+        server.socket().bind(new InetSocketAddress(8080), 1024);
         // 设置为非阻塞模式, 这个非常重要
         server.configureBlocking(false);
         // 在选择器里面注册关注这个服务器套接字通道的accept事件
@@ -28,7 +31,7 @@ public class NioService {
 
         while (true) {
             //休眠时间为1s，无论是否有读写等事件发生，selector每隔1s都被唤醒一次
-            selector.select(1000);
+            selector.select(500);
             Set<SelectionKey> keys = selector.selectedKeys();
             Iterator<SelectionKey> it = keys.iterator();
             SelectionKey key = null;
@@ -44,6 +47,7 @@ public class NioService {
                     //ServerSocketChannel的accept接收客户端的连接请求并创建SocketChannel实例，完成上述操作后，相当于完成了TCP的三次握手，TCP物理链路正式建立。
                     //我们需要将新创建的SocketChannel设置为异步非阻塞，同时也可以对其TCP参数进行设置，例如TCP接收和发送缓冲区的大小等。此处省掉
                     SocketChannel channel = ssc.accept();
+                    System.err.println(channel.getRemoteAddress() + "已连接");
                     channel.configureBlocking(false);
                     channel.register(selector, SelectionKey.OP_READ);
                     //将key对应Channel设置为准备接受其他请求
@@ -60,10 +64,11 @@ public class NioService {
                             byte[] bytes = new byte[byteBuffer.remaining()];
                             byteBuffer.get(bytes);
                             content += new String(bytes);
-                            System.out.println(content);
+                            System.out.println(channel.getRemoteAddress() + "发来以下内容: " + content);
                             //回应客户端
-                            doWrite(channel);
+                            doWriteToOther(content, selector);
                         }
+
                         // 写完就把状态关注去掉，否则会一直触发写事件(改变自身关注事件)
                         key.interestOps(SelectionKey.OP_READ);
                     } catch (IOException i) {
@@ -87,6 +92,21 @@ public class NioService {
         sc.write(byteBuffer);
         if (!byteBuffer.hasRemaining()) {
             System.out.println("Send 2 Service successed");
+        }
+    }
+
+    private void doWriteToOther(String msg, Selector selector) throws IOException {
+        Set<SelectionKey> selectionKeys = selector.keys();
+        Iterator<SelectionKey> iterator = selectionKeys.iterator();
+        ByteBuffer buffer = ByteBuffer.wrap(String.valueOf(msg).getBytes());
+        while (iterator.hasNext()) {
+            SelectionKey key = iterator.next();
+            SelectableChannel channel = key.channel();
+            if (channel instanceof SocketChannel) {
+                SocketChannel socketChannel = (SocketChannel) channel;
+                buffer.rewind();
+                socketChannel.write(buffer);
+            }
         }
     }
 }

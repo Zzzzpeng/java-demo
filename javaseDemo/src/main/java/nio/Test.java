@@ -1,17 +1,18 @@
 package nio;
 
+import com.sun.org.apache.bcel.internal.generic.Select;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.SocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Set;
@@ -20,14 +21,19 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Lock;
 
 public class Test {
+    static int i = 9989;
     public static void main(String[] args) throws IOException, InterruptedException {
-        runServer();
+//        runServer();
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 //        runNioServer();
-        executorService.execute(()->runClient(5000));
-        Thread.sleep(20);
-        executorService.execute(()->runClient(0));
-        executorService.shutdown();
+//        executorService.execute(()->runClient(5000));
+//        Thread.sleep(20);
+//        executorService.execute(()->runClient(0));
+//        executorService.shutdown();
+//        runClient(500);
+//        start();
+        new Thread(()->start()).start();
+        new Thread(()->start()).start();
 
     }
 
@@ -111,14 +117,17 @@ public class Test {
 
     static void runClient(long time) {
         new Thread(() -> {
-            try {
-                Socket socket = new Socket("127.0.0.1", 8000);
-//                while (true) {
+            try (SocketChannel socketChannel = SocketChannel.open()) {
+                socketChannel.connect(new InetSocketAddress("127.0.0.1", 8080));
+                ByteBuffer buffer = ByteBuffer.allocate(1024);
+                buffer.flip();
+                socketChannel.write(ByteBuffer.wrap("嘻嘻嘻".getBytes()));
+                while (true) {
                     Thread.sleep(time);
-                    OutputStream outputStream = socket.getOutputStream();
-                    outputStream.write( ("hello world--time:" + String.valueOf(time)).getBytes());
-                    socket.close();
-//                }
+                    buffer.clear();
+                    socketChannel.read(buffer);
+                    System.out.println("客户端" + socketChannel + "收到消息: " + new String(buffer.array()));
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -154,6 +163,72 @@ public class Test {
 
             }
         }).start();
+    }
+
+
+    public static void start() {
+        try (SocketChannel socketChannel = SocketChannel.open()) {
+            socketChannel.bind(new InetSocketAddress("127.0.0.1", 9989+i++));
+            //连接服务端socket
+            SocketAddress socketAddress = new InetSocketAddress("localhost", 8080);
+            socketChannel.connect(socketAddress);
+            socketChannel.configureBlocking(false);
+            Selector selector = Selector.open();
+            socketChannel.register(selector, SelectionKey.OP_READ);
+            int sendCount = 0;
+            ByteBuffer buffer = ByteBuffer.allocate(1024);
+
+            while (true) {
+                int select = selector.select(200);
+                if (select > 0) {
+                    System.out.println("select > 0");
+                    Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
+                    while (iterator.hasNext()) {
+                        SelectionKey key = iterator.next();
+                        iterator.remove();
+                        if (key.isReadable()) {
+                            SocketChannel channel = (SocketChannel) key.channel();
+//                            channel.configureBlocking(false);
+                            buffer.clear();
+                            channel.read(buffer);
+                            System.out.println("客戶端读取数据:" + new String(buffer.array()));
+                        }
+
+                    }
+                }
+            }
+
+            //这里最好使用selector处理   这里只是为了写的简单
+//            while (sendCount < 10) {
+//                buffer.clear();
+//                //向服务端发送消息
+//                buffer.put(("current time : " + System.currentTimeMillis()).getBytes());
+//                //读取模式
+//                buffer.flip();
+//                socketChannel.write(buffer);
+//                buffer.clear();
+//
+//                //从服务端读取消息
+//                System.out.println("2222");
+//                int readLenth = socketChannel.read(buffer);
+//                System.out.println("333");
+//                //读取模式
+//                buffer.flip();
+//                byte[] bytes = new byte[readLenth];
+//                buffer.get(bytes);
+//                System.out.println(new String(bytes, "UTF-8"));
+//                buffer.clear();
+//                sendCount++;
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
