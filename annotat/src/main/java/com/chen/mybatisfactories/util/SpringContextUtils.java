@@ -24,5 +24,7 @@ public class SpringContextUtils implements ApplicationContextAware {
         System.out.println("返回上下文实例");
         return applicationContext;
     }
-
+    public <T> T getBean(Class<T> clz){
+        return applicationContext.getBean(clz);
+    }
 }
