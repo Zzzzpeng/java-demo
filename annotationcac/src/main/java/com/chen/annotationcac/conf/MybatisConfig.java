@@ -9,7 +9,7 @@ import org.springframework.core.io.ClassPathResource;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 //@MapperScan({"com.chen.annotationcac.dao"})
 @ComponentScan({"com.chen.annotationcac"})
 @ImportResource("classpath:spring.xml")

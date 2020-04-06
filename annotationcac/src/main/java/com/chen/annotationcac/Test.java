@@ -1,5 +1,6 @@
 package com.chen.annotationcac;
 
+import com.chen.annotationcac.bean.MyImportBeanDefinitionRegistrar;
 import com.chen.annotationcac.conf.AcConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -11,10 +12,12 @@ public class Test {
 //        GenericBeanDefinition beanDefinition = (GenericBeanDefinition) ac.getBeanDefinition("acConfig");
 //        beanDefinition.setBeanClass(NameService.class);
 //        System.out.println(ac.getBean(UserService.class));
-//        String[] beanDefinitionNames = ac.getBeanDefinitionNames();
-//        for (String beanDefinitionName : beanDefinitionNames) {
-//            System.out.println(beanDefinitionName);
-//        }
+        String[] beanDefinitionNames = ac.getBeanDefinitionNames();
+        for (String beanDefinitionName : beanDefinitionNames) {
+            System.out.println(beanDefinitionName);
+        }
+//        MyImportBeanDefinitionRegistrar bean = ac.getBean(MyImportBeanDefinitionRegistrar.class);
+//        System.out.println(bean);
 
     }
 

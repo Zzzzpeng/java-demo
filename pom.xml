@@ -11,6 +11,7 @@
         <module>mail-task</module>
         <module>ex-io</module>
         <module>spring-tomcat</module>
+        <module>annotat</module>
     </modules>
     <groupId>com.chen</groupId>
     <artifactId>manager</artifactId>

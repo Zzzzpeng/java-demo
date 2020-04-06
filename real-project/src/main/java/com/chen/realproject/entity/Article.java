@@ -1,15 +1,20 @@
 package com.chen.realproject.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.context.annotation.Configuration;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
-//@JsonInclude(JsonInclude.Include.NON_NULL)
 
+@JsonInclude(JsonInclude.Include.ALWAYS)
+//@ConditionalOnBean(User.class)
 public class Article implements Serializable {
-
+    public Article() {
+        System.out.println("");
+    }
     Long id;
 
     @NotNull(message = "标题不能为Null")

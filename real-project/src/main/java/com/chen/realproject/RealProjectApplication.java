@@ -13,7 +13,7 @@ public class RealProjectApplication {
     public static void main(String[] args) {
         AbstractApplicationContext abstractApplicationContext;
         ConfigurableApplicationContext run = SpringApplication.run(RealProjectApplication.class, args);
-
+        System.out.println("finish");
     }
 
 }

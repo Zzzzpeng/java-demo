@@ -76,7 +76,7 @@ public class MybatisTest {
     @Test
     @Rollback(false)
     public void mutiInsert(){
-        payDescVoMapper.selectAll()
+        payDescVoMapper.selectAll();
     }
 
 

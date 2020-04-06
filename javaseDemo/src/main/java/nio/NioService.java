@@ -28,7 +28,6 @@ public class NioService {
         // ServerSocketChannel只有OP_ACCEPT可用，OP_CONNECT,OP_READ,OP_WRITE用于SocketChannel
         server.register(selector, SelectionKey.OP_ACCEPT);
 
-
         while (true) {
             //休眠时间为1s，无论是否有读写等事件发生，selector每隔1s都被唤醒一次
             selector.select(500);
