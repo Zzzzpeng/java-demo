@@ -1,5 +1,6 @@
 package sort;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class HeadSort {
@@ -30,13 +31,25 @@ public class HeadSort {
 
 
     public static void main(String[] args) {
-        int maxPubYueShu = getMaxPubYueShu (50, 5);
-        System.out.println(maxPubYueShu);
-//        int[] nums = new int[5];
+//        int maxPubYueShu = getMaxPubYueShu (50, 5);
+//        System.out.println(maxPubYueShu);
+
+
+
+
+        int[] nums = new int[10];
+        nums = new int[]{7, 53, 96, 44, 1000};
+        int[] ints = Arrays.copyOf(nums, 2);
+        for (int anInt : ints) {
+            System.out.println(anInt);
+        }
+
+
 //        for (int i = 0; i < nums.length; i++) {
 //            nums[i] = (int) (Math.random() * 100);
 //        }
-//        nums[4] = 1000;
+//        nums = new int[]{7, 53, 96, 44, 1000};
+////        nums[4] = 1000;
 //        System.out.println(Arrays.toString(nums));
 //        sort(nums);
 //        System.out.println(Arrays.toString(nums));
@@ -49,11 +62,10 @@ public class HeadSort {
             adjustHeap(arr, i, arr.length);
         }
         //2.调整堆结构+交换堆顶元素与末尾元素
-        for (int j = arr.length - 1; j > 0; j--) {
+        for (int j = arr.length - 1; j > arr.length - 1 - 2; j--) {
             swap(arr, 0, j);//将堆顶元素与末尾元素进行交换
             adjustHeap(arr, 0, j);//重新对堆进行调整
         }
-
     }
 
     /**
@@ -66,10 +78,10 @@ public class HeadSort {
     public static void adjustHeap(int[] arr, int i, int length) {
         int temp = arr[i];//先取出当前元素i
         for (int k = i * 2 + 1; k < length; k = k * 2 + 1) {//从i结点的左子结点开始，也就是2i+1处开始
-            if (k + 1 < length && arr[k] < arr[k + 1]) {//如果左子结点小于右子结点，k指向右子结点
+            if (k + 1 < length && arr[k] > arr[k + 1]) {//如果左子结点小于右子结点，k指向右子结点
                 k++;
             }
-            if (arr[k] > temp) {//如果子节点大于父节点，将子节点值赋给父节点（不用进行交换）
+            if (arr[k] < temp) {//如果子节点大于父节点，将子节点值赋给父节点（不用进行交换）
                 arr[i] = arr[k];
                 i = k;
             } else {

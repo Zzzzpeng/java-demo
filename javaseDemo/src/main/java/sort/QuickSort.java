@@ -6,7 +6,7 @@ public class QuickSort {
    public  static void quicklySort(int[] nums,int left,int right){
            if(right<=left)
                return;
-          int midIndex = partitionAndSort(nums,left,right);
+          int midIndex = partition(nums,left,right);
           quicklySort(nums,left,midIndex-1);
           quicklySort(nums,midIndex+1,right);
    }
@@ -49,10 +49,38 @@ public class QuickSort {
         System.out.println(Arrays.toString(nums));
 
         boolean isCorrect = true;
-        for (int i = 0; i < nums.length; i++) {
-            if(nums[i]<nums[i-1<0?0:i-1])
+        for (int i = 0; i < nums.length - 1; i++) {
+            if(nums[i] > nums[i + 1]){
                 isCorrect = false;
+                break;
+            }
         }
         System.out.println(isCorrect);
     }
+
+
+    /**
+     * 双指针法
+     * 要注意默认左边的[startIdx]最后要处理,所以左指针必须是<=而不能是<
+     *
+     * @param nums
+     * @param startIdx
+     * @param endIdx
+     * @return
+     */
+    private static int partition(int[] nums, int startIdx, int endIdx) {
+        int pivot = nums[startIdx];
+        int left = startIdx, right = endIdx;
+        while (left < right) {
+            while (left < right && nums[right] > pivot)right--;
+            while (left < right && nums[left] <= pivot)left++;
+            int t = nums[right];
+            nums[right] = nums[left];
+            nums[left] = t;
+        }
+        //
+        nums[startIdx] = nums[right];
+        nums[right] = pivot;
+        return right;
+   }
 }
