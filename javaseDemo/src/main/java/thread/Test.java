@@ -2,6 +2,7 @@ package thread;
 
 import java.util.HashMap;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -48,11 +49,21 @@ public class Test {
         readLock.unlock();
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        futureTaskStateTest();
-        int a ;
-        test(a = 4);
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        FutureTask<String> futureTask = new FutureTask<>(()-> {
+            if(1==1){
+                throw new RuntimeException();
+            }
+            return null;
+        });
+        futureTask.run();
+        String s = futureTask.get();
+
+//        futureTaskStateTest();
+//        int a ;
+//        test(a = 4);
     }
+
     static void test(int a){
         System.out.println(a);
         ThreadLocal<HashMap> threadLocal = new ThreadLocal<>();

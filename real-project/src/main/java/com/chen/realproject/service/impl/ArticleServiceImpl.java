@@ -37,5 +37,10 @@ public class ArticleServiceImpl implements IArticleService {
         return pageVo;
     }
 
+    @Override
+    public void show() {
+        System.out.println("show");
+    }
+
 
 }

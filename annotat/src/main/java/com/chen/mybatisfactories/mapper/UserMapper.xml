@@ -7,6 +7,6 @@
         select * from group_post where id = 1
     </select>
     <update id="update">
-        update group_post set `status` = status + 1  where id = 1
+        update group_post set `status` = status - 1  where id = 1 and status > 0
     </update>
 </mapper>

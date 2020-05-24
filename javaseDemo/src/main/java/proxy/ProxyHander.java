@@ -14,8 +14,8 @@ public class ProxyHander implements InvocationHandler {
     }
 
     public  <T> T getProxy(Class<? extends T> clz ){
-//        if(clz==null) throw new RuntimeException("传入的Class类型为空");
-//        if(target == null) throw new RuntimeException("没有代理对象");
+        if(clz==null) throw new RuntimeException("传入的Class类型为空");
+        if(target == null) throw new RuntimeException("没有代理对象");
         return (T)Proxy.newProxyInstance(this.getClass().getClassLoader(), ProxyHandler.class.getInterfaces(),this);
     }
 

@@ -38,6 +38,9 @@ package sort;/* 	public class CountSort {
 import java.util.Arrays;
 
 public class CountSort {
+    public static int[] simCountSort(int[] nums){
+        return null;
+    }
     public static int[] sort(int[] nums){
         int max = max(nums);
         int[] count = new int[max+1];//计数数组
@@ -48,8 +51,9 @@ public class CountSort {
             count[i]+=sum;
             sum = count[i];
         }
-        System.out.println( Arrays.toString(count));
         int[] res = new int[nums.length];
+
+
 //        for(int i=nums.length-1;i>=0;i--){
 //                res[count[nums[i]]-1] = nums[i];
 //                count[nums[i]]--;
@@ -86,16 +90,43 @@ public class CountSort {
         }
         return res;
     }
-    public static void main(String[] args){
-        int[] nums = new int[50];
-        for(int i =0;i<nums.length;i++){
-            nums[i] = (int)(100*Math.random())+1;
-        }
-        System.out.println(Arrays.toString(nums));
-        int[] newNums = sort(nums);
-        System.out.println(Arrays.toString(newNums));
-    }
 
+    static int[] simpleCountSort(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        for (int num : nums) {
+            if (num > max)
+                max = num;
+        }
+        int[] countArr = new int[max + 1];
+        for (int num : nums) {
+            countArr[num]++;
+        }
+        //输出
+        for (int i = 0,index = 0; i < countArr.length; i++) {
+            while (countArr[i]-- > 0){
+                nums[index++] = i;
+            }
+        }
+        return nums;
+    }
+    public static void main(String[] args){
+        int[] nums = new int[10000];
+        for(int i =0;i<nums.length;i++){
+            nums[i] = (int)(10000*Math.random())+1;
+        }
+//        System.out.println(Arrays.toString(nums));
+        System.out.println(isSort(nums));
+        int[] newNums = simpleCountSort(nums);
+//        System.out.println(Arrays.toString(newNums));
+        System.out.println(isSort(newNums));
+    }
+    static boolean isSort(int[] nums){
+        for (int i = 0; i < nums.length - 1; i++) {
+            if(nums[i] > nums[i + 1])
+                return false;
+        }
+        return true;
+    }
 }
 					
 					

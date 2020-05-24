@@ -15,13 +15,14 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 import org.springframework.transaction.config.JtaTransactionManagerFactoryBean;
 import org.springframework.transaction.jta.JtaTransactionManager;
 
+import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 public class Beans {
 
     @Configuration
     static class TransationBean implements TransactionManagementConfigurer {
-        @Autowired
+        @Resource(name="dataSource")
         DataSource dataSource;
 
         @Override

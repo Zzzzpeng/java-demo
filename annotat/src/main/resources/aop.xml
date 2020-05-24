@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+        default-autowire="byType">
+    <bean id="userService" class="com.chen.mybatisfactories.service.impl.UserServiceImpl"></bean>
+    <bean id="myBean" class="com.chen.mybatisfactories.bean.MyBean"></bean>
+
+<!--    代理配置-->
+    <bean id="myadvice" class="com.chen.mybatisfactories.advice.MyAdvice"></bean>
+    <bean id="youradvice" class="com.chen.mybatisfactories.advice.YourAdvice"></bean>
+
+
+    <bean id="rmpAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <!--patterns,如果有多个指定的值的话，可以使用，隔开，例如value=".*add,.*delete"-->
+        <property name="patterns" value=".*upd.*,.*sale.*,.*show.*"/>
+        <property name="advice" ref="myadvice"/>
+    </bean>
+    <bean id="rmpAdvisor1" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <!--patterns,如果有多个指定的值的话，可以使用，隔开，例如value=".*add,.*delete"-->
+        <property name="patterns" value=".*upd.*,.*sale.*,.*show.*"/>
+        <property name="advice" ref="youradvice"/>
+    </bean>
+
+
+
+
+<!--    <bean id="bookDaoProxy" class="org.springframework.aop.framework.ProxyFactoryBean">-->
+<!--        <property name="target" ref="myService"/>-->
+<!--        <property name="proxyInterfaces" value="com.chen.mybatisfactories.service.UserService,com.chen.mybatisfactories.service.GoodService"/>-->
+<!--        <property name="interceptorNames" value="rmpAdvisor"/>-->
+<!--    </bean>-->
+
+<!--    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">-->
+<!--        <property name="beanNames" value="*Service,*myBean"></property>-->
+<!--        <property name="interceptorNames" value="rmpAdvisor,rmpAdvisor1"></property>-->
+<!--    </bean>-->
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+
+</beans>

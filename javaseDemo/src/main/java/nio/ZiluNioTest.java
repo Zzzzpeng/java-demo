@@ -8,9 +8,7 @@ import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class ZiluNioTest {
 
@@ -33,11 +31,12 @@ public class ZiluNioTest {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        new Thread(() -> new BioServer().listen_0()).start();
-//        new Thread(() -> new IoClient().sendMsg(null)).start();
-//        Thread.sleep(50);
+//        new Thread(() -> new BioServer().listen_0()).start();
+        new Thread(() -> new NioServer().listen_0()).start();
+        Thread.sleep(50);
         new Thread(() -> new IoClient().sendMsg("发一条msg过去")).start();
-
+        Thread.sleep(50);
+        new Thread(() -> new IoClient().sendMsg("发一条msg过去")).start();
     }
 
     public static class BioServer {
@@ -85,22 +84,30 @@ public class ZiluNioTest {
         public void listen_0() {
             List<SocketChannel> socketChannelList = new ArrayList<>();
             try {
-                ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
-                byte[] bytes = new byte[1024];
                 ServerSocketChannel serverSocket = ServerSocketChannel.open();
                 serverSocket.bind(new InetSocketAddress(8080));
                 serverSocket.configureBlocking(false);
                 while (true) {
-                    for (SocketChannel socketChannel : socketChannelList) {
+                    Iterator<SocketChannel> iterator = socketChannelList.iterator();
+                    while (iterator.hasNext()) {
                         //读数据,-1删除
+                        SocketChannel socketChannel = iterator.next();
+                        ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+                        int byteCount = socketChannel.read(byteBuffer);
+                        if (byteCount > 0) {
+                            System.out.println("read data:  "+new String(byteBuffer.array()));
+                        }else if(byteCount == -1){
+                            iterator.remove();
+                        }
                     }
                     SocketChannel accept = serverSocket.accept();
                     if (accept != null) {
+                        ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
                         accept.configureBlocking(false);
                         socketChannelList.add(accept);
                         int byteCount = accept.read(byteBuffer);
                         if (byteCount > 0) {
-                            System.out.println("read data:  "+byteBuffer.toString());
+                            System.out.println("read data:  "+new String(byteBuffer.array()));
                         }
                     }
                     else{

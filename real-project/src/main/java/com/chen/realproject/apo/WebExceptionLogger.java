@@ -1,7 +1,10 @@
 package com.chen.realproject.apo;
 
 
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
@@ -20,6 +23,8 @@ public class WebExceptionLogger {
 
     @Pointcut("execution(* com.chen.realproject.controller.*.*(..))")
     public void PointcutDeclaration(){}
+    @Pointcut("execution(* com.chen.realproject.service.impl.*.*(..))")
+    public void PointcutDeclaration1(){}
 
 
     @AfterThrowing(pointcut = "PointcutDeclaration()",throwing = "e")
@@ -27,9 +32,17 @@ public class WebExceptionLogger {
         System.out.println("开始记录异常");
         logger.error("aop开始记录异常");
         logger.error(e.toString());
-
     }
 
-
+    @Around("PointcutDeclaration1()")
+    public void around(ProceedingJoinPoint proceedingJoinPoint){
+        System.out.println();
+        System.out.println("Aspect执行方法");
+        try {
+            proceedingJoinPoint.proceed();
+        } catch (Throwable throwable) {
+            throwable.printStackTrace();
+        }
+    }
 
 }

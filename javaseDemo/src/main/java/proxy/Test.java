@@ -5,19 +5,17 @@ import java.util.Date;
 
 public class Test {
     public static void main(String[] args) {
-        test();
+
+//        normalProxy();
     }
     static void normalProxy(){
         ProxyHander proxyHander = new ProxyHander();
-//        proxyHander.setTarget(new Host());
+        proxyHander.setTarget(new Host());
 
-//        host.rent();
-//        host.takeFee();
-        Rent host = (Rent) Proxy.newProxyInstance(Test.class.getClassLoader(), new Class[]{Rent.class}, new ProxyHander());
-        host.toString();
-    }
-    static void test(){
-        Host host = new Host();
-        host.rent();
+
+        Rent host = (Rent) Proxy.newProxyInstance(Test.class.getClassLoader(),Host.class.getInterfaces(), proxyHander);
+        host.takeFee();
+        ((Human) host).eat();
+//        host.toString();
     }
 }

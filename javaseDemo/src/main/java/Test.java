@@ -3,7 +3,7 @@ import org.springframework.util.ReflectionUtils;
 
 public class Test{
     public static void main(String[] args) {
-        new SubContext().init();
+//        new SubContext().init();
     }
 }
  class SuperContext {
