@@ -6,21 +6,18 @@ import com.chen.realproject.entity.Article;
 import com.chen.realproject.service.IArticleService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
 
 @Service
 public class ArticleServiceImpl implements IArticleService {
 
     @Resource(name = "articleMapper")
     ArticleMapper articleMapper;
-
-
+    @Value("${czpName}")
+    public String name;
     @Override
     public Object findOne(long id) {
 
@@ -30,6 +27,7 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public Object findList(int pageNum, int pageSize) {
+        System.out.println(name);
         PageHelper.startPage(pageNum, pageSize);
         Page<Article> page = (Page<Article>) articleMapper.findList(pageNum, pageSize);
 //        Page<BrandVo> page = (Page<BrandVo>) brandMapper.getBrandList();
@@ -39,7 +37,7 @@ public class ArticleServiceImpl implements IArticleService {
 
     @Override
     public void show() {
-        System.out.println("show");
+        System.out.println(name);
     }
 
 

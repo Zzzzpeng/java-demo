@@ -1,15 +1,15 @@
-package com.chen.mybatisfactories.advice;
+package com.chen.mybatisfactories.aop.advice;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 
-public class MyAdvice implements MethodInterceptor {
+public class YourAdvice  implements MethodInterceptor {
 
     @Override
     public Object invoke(MethodInvocation invocation) throws Throwable {
-        System.out.println("Around Advice before method invocation");
+        System.out.println("before method invocation");
         Object o = invocation.proceed();
-        System.out.println("Around Advice after method invocation");
+        System.out.println("after method invocation");
         return o;
     }
 }

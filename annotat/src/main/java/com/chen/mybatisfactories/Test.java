@@ -1,11 +1,13 @@
 package com.chen.mybatisfactories;
 
+import com.chen.mybatisfactories.Po.Post;
 import com.chen.mybatisfactories.bean.Bean1;
 import com.chen.mybatisfactories.bean.Car;
 import com.chen.mybatisfactories.bean.EngineFactoryBean;
 import com.chen.mybatisfactories.bean.MyBean;
 import com.chen.mybatisfactories.conf.AppConfig;
 import com.chen.mybatisfactories.mapper.UserMapper;
+import com.chen.mybatisfactories.mapper.apollo.AppMapper;
 import com.chen.mybatisfactories.service.Engine;
 import com.chen.mybatisfactories.service.GoodService;
 import com.chen.mybatisfactories.service.Human;
@@ -32,16 +34,19 @@ public class Test {
 //        System.out.println(engine);
     }
 
-    public static void mybatisTest(){
+    @org.junit.Test
+    public void mybatisTest() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         UserMapper bean = ac.getBean(UserMapper.class);
-        bean.update();
+        System.out.println(bean.getOne());
     }
-    public static void beanFactoryMergeAopTest(){
+
+    public static void beanFactoryMergeAopTest() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         Car bean = ac.getBean(Car.class);
         bean.work();
     }
+
     public static void autoNameAopTest() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         UserService bean1 = (UserService) ac.getBean("userService");
@@ -66,9 +71,24 @@ public class Test {
         bean.update();
         ((GoodService) bean).sale(1, 1);
     }
-    public static void springTransactionTest(){
+
+    public static void springTransactionTest() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         UserService bean = (UserService) ac.getBean("userService");
         bean.update();
+    }
+
+    @org.junit.Test
+    public void importTest() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        Post bean = ac.getBean(Post.class);
+        System.out.println(bean);
+    }
+
+    @org.junit.Test
+    public void mybatisApolloTest() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
+        AppMapper bean = ac.getBean(AppMapper.class);
+        System.out.println(bean.getAll());
     }
 }

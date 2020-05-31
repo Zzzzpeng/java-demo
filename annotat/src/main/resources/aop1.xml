@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd"
+    >
+
+    <!-- 代理前原对象 -->
+    <bean id="person" class="com.chen.mybatisfactories.aop.Person"></bean>
+
+    <!-- 切点 -->
+    <bean id="cut" class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+        <property name="pattern" value=".*run.*"></property>
+    </bean>
+
+    <!-- 通知-由我们写，实际代理动作 -->
+    <bean id="advice" class="com.chen.mybatisfactories.aop.advice.DeafultAdvisor"></bean>
+
+    <!-- 切面 = 切点+通知 -->
+    <bean id="advisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+        <property name="pointcut" ref="cut"></property>
+        <property name="advice" ref="advice"></property>
+    </bean>
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"></bean>
+
+<!--    &lt;!&ndash; 代理工厂 &ndash;&gt;-->
+<!--    <bean id="personProxied" class="org.springframework.aop.framework.ProxyFactoryBean">-->
+<!--        &lt;!&ndash; 放入原型对象 &ndash;&gt;-->
+<!--        <property name="target" ref="person"></property>-->
+
+<!--        &lt;!&ndash; 放入切面 &ndash;&gt;-->
+<!--        <property name="interceptorNames">-->
+<!--            <list>-->
+<!--                <value>advisor</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+
+</beans>

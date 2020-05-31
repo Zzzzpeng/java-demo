@@ -106,6 +106,41 @@ public class Beans {
         }
     }
 
+    @Configuration
+    static class Apollo_Db {
+        @Bean(name = "apolloDb")
+        public DataSource dataSource() {
+            DruidDataSource dataSource = new DruidDataSource();
+            dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+            dataSource.setUrl("jdbc:mysql://112.74.85.207:33306/ApolloConfigDB?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC");
+            dataSource.setUsername("root");
+            dataSource.setPassword("root");
+            return dataSource;
+        }
+
+        /**
+         * sqlSessionFactoryBean
+         *
+         * @param dataSource
+         * @return
+         */
+        @Bean(name = "apolloSqlSessionFactory")
+        public SqlSessionFactoryBean getSqlSessionFactoryBean(@Qualifier("apolloDb") DataSource dataSource) {
+            SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+            sqlSessionFactoryBean.setDataSource(dataSource);
+//            sqlSessionFactoryBean.setConfigLocation(new ClassPathResource("这里指定mybatis配置文件"));
+            return sqlSessionFactoryBean;
+        }
+
+        @Bean(name = "apolloMapperScannerConfigurer")
+        public MapperScannerConfigurer mapperScannerConfigurer(@Qualifier("apolloSqlSessionFactory") SqlSessionFactory sessionFactoryBean) {
+            MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
+            mapperScannerConfigurer.setSqlSessionFactory(sessionFactoryBean);
+            mapperScannerConfigurer.setBasePackage("com.chen.mybatisfactories.mapper.apollo");
+            return mapperScannerConfigurer;
+        }
+    }
+
 
 //    public Beans() {
 //        System.out.println(".....................bean................");

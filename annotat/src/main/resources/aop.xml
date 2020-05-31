@@ -7,8 +7,8 @@
     <bean id="myBean" class="com.chen.mybatisfactories.bean.MyBean"></bean>
 
 <!--    代理配置-->
-    <bean id="myadvice" class="com.chen.mybatisfactories.advice.MyAdvice"></bean>
-    <bean id="youradvice" class="com.chen.mybatisfactories.advice.YourAdvice"></bean>
+    <bean id="myadvice" class="com.chen.mybatisfactories.aop.advice.MyAdvice"></bean>
+    <bean id="youradvice" class="com.chen.mybatisfactories.aop.advice.YourAdvice"></bean>
 
 
     <bean id="rmpAdvisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
