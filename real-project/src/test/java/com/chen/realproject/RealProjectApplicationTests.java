@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.json.JacksonJsonParser;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Map;
@@ -19,10 +20,15 @@ import java.util.Map;
 @SpringBootTest
 public class RealProjectApplicationTests {
     @Autowired
-    ArticleMapper articleMapper;
+    private ArticleMapper articleMapper;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
-
-
+    @Test
+    public void cacheTest(){
+        redisTemplate.multi();
+        redisTemplate.exec();
+    }
     @Test
     public void contextLoads() throws JSONException {
         Article one = articleMapper.findOne(0L);

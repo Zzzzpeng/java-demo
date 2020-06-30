@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
         default-autowire="byType">
     <bean id="userService" class="com.chen.mybatisfactories.service.impl.UserServiceImpl"></bean>
-    <bean id="myBean" class="com.chen.mybatisfactories.bean.MyBean"></bean>
+<!--    <bean id="myBean" class="com.chen.mybatisfactories.bean.MyBean"></bean>-->
 
 <!--    代理配置-->
     <bean id="myadvice" class="com.chen.mybatisfactories.aop.advice.MyAdvice"></bean>
@@ -31,11 +31,11 @@
 <!--        <property name="interceptorNames" value="rmpAdvisor"/>-->
 <!--    </bean>-->
 
-<!--    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">-->
-<!--        <property name="beanNames" value="*Service,*myBean"></property>-->
-<!--        <property name="interceptorNames" value="rmpAdvisor,rmpAdvisor1"></property>-->
-<!--    </bean>-->
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames" value="*Service*,*myBean,engine"></property>
+        <property name="interceptorNames" value="rmpAdvisor,rmpAdvisor1"></property>
+    </bean>
 
-    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+<!--    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>-->
 
 </beans>

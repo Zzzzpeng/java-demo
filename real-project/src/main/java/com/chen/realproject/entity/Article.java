@@ -1,8 +1,13 @@
 package com.chen.realproject.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -11,7 +16,8 @@ import java.util.Date;
 
 @JsonInclude(JsonInclude.Include.ALWAYS)
 //@ConditionalOnBean(User.class)
-public class Article implements Serializable {
+//@Component
+public class Article implements Serializable, BeanFactoryPostProcessor {
     public Article() {
         System.out.println("");
     }
@@ -89,4 +95,8 @@ public class Article implements Serializable {
         System.out.println(String.valueOf(1567606966000L).length());
     }
 
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+
+    }
 }

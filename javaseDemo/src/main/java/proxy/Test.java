@@ -6,14 +6,15 @@ import java.util.Date;
 public class Test {
     public static void main(String[] args) {
 
-//        normalProxy();
+        normalProxy();
     }
     static void normalProxy(){
         ProxyHander proxyHander = new ProxyHander();
-        proxyHander.setTarget(new Host());
+        Host target = new Host();
+        proxyHander.setTarget(target);
 
 
-        Rent host = (Rent) Proxy.newProxyInstance(Test.class.getClassLoader(),Host.class.getInterfaces(), proxyHander);
+        Rent host = (Rent) Proxy.newProxyInstance(Test.class.getClassLoader(),target.getClass().getInterfaces(), proxyHander);
         host.takeFee();
         ((Human) host).eat();
 //        host.toString();

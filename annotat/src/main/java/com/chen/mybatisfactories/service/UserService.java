@@ -7,4 +7,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface UserService {
     int update();
+
+    Object getOne();
+
+    int addOne();
+
+    int updateJianxi();
+
+    int decrece(int count, long time);
+
+    void noTxTtest();
 }

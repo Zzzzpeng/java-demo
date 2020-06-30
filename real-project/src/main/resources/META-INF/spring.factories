@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.chen.realproject.entity.Article
+com.chen.realproject.processor.MyBeanFactoryPostProcessor

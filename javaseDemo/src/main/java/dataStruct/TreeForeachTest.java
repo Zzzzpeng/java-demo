@@ -165,6 +165,8 @@ public class TreeForeachTest {
 //        System.out.println();
 //        midTravalNoRecursive(tree);
 
+//        midTraval(tree);
+
         System.out.println("((((((");
         postTraval(tree);
         System.out.println();

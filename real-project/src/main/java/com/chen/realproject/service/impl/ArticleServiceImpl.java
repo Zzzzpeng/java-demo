@@ -13,6 +13,9 @@ import javax.annotation.Resource;
 
 @Service
 public class ArticleServiceImpl implements IArticleService {
+    public ArticleServiceImpl() {
+        System.out.println("init");
+    }
 
     @Resource(name = "articleMapper")
     ArticleMapper articleMapper;

@@ -6,8 +6,10 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -18,20 +20,9 @@ import org.springframework.transaction.jta.JtaTransactionManager;
 import javax.annotation.Resource;
 import javax.sql.DataSource;
 
+import static java.lang.Thread.currentThread;
+
 public class Beans {
-
-    @Configuration
-    static class TransationBean implements TransactionManagementConfigurer {
-        @Resource(name="dataSource")
-        DataSource dataSource;
-
-        @Override
-        @Bean
-        public PlatformTransactionManager annotationDrivenTransactionManager() {
-            return new DataSourceTransactionManager(dataSource);
-        }
-    }
-
     @Configuration
     static class Hsh_Db {
         @Bean(name = "dataSource")
@@ -46,10 +37,11 @@ public class Beans {
         }
 
         @Bean(name = "sqlSessionFactory")
-        public SqlSessionFactoryBean getSqlSessionFactoryBean(@Qualifier("dataSource") DataSource dataSource) {
+        public SqlSessionFactoryBean getSqlSessionFactoryBean(@Qualifier("dataSource") DataSource dataSource,
+                                                              ApplicationContext ac) {
             SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
             sqlSessionFactoryBean.setDataSource(dataSource);
-//            sqlSessionFactoryBean.setConfigLocation(new ClassPathResource("这里指定mybatis配置文件"));
+            sqlSessionFactoryBean.setConfigLocation(ac.getResource("classpath:mybatis-conf.xml"));
             return sqlSessionFactoryBean;
         }
 
@@ -59,6 +51,11 @@ public class Beans {
             mapperScannerConfigurer.setSqlSessionFactory(sessionFactoryBean);
             mapperScannerConfigurer.setBasePackage("com.chen.mybatisfactories.mapper");
             return mapperScannerConfigurer;
+        }
+
+        @Bean
+        public PlatformTransactionManager annotationDrivenTransactionManager(@Qualifier("dataSource") DataSource dataSource) {
+            return new DataSourceTransactionManager(dataSource);
         }
 
 //        @Bean(name = "transactionManager")

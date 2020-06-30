@@ -1,10 +1,10 @@
 package algorithm;
 
 
+import org.junit.Test;
+
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 public class Node {
 
@@ -27,6 +27,41 @@ public class Node {
 
         }
     }
+
+    static class TreeLinkNode {
+        int val;
+        TreeLinkNode left = null;
+        TreeLinkNode right = null;
+        TreeLinkNode parent = null;
+
+        TreeLinkNode(int val) {
+            this.val = val;
+        }
+    }
+
+    /**
+     * 查找二叉树的右驱节点
+     * @param pNode
+     * @return
+     */
+    public TreeLinkNode GetNext(TreeLinkNode pNode)
+        {
+            if (pNode == null) {
+                return null;
+            }
+            if (pNode.right == null) {
+                while (pNode.parent != null && pNode == pNode.parent.right){
+                    pNode = pNode.parent;
+                }
+                return pNode.parent;
+            }else {
+                TreeLinkNode res = pNode.right;
+                while (res.left != null){
+                    res = res.left;
+                }
+                return res;
+            }
+        }
 
     public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
         ListNode head1 = pHead1;
@@ -262,4 +297,26 @@ public class Node {
         return Math.max(getHeight(node.left, h + 1), getHeight(node.right, h + 1));
     }
 
+    //验证是否二叉搜索树
+    private Integer temp;
+    private boolean isValidBST(TreeNode node){
+        if (node != null) {
+            if(!isValidBST(node.left))
+                return false;
+            if(temp != null && temp >= node.val){
+               return false;
+            }else{
+                temp = node.val;
+            }
+            return isValidBST(node.right);
+        }
+        return true;
+    }
+
+    @Test
+    public void test() {
+        TreeNode root = new TreeNode(0);
+//        root.left = new TreeNode(-1);
+        System.out.println(isValidBST(root));
+    }
 }

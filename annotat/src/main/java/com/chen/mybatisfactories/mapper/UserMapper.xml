@@ -3,10 +3,25 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chen.mybatisfactories.mapper.UserMapper">
-    <select id="getOne" resultType="java.util.Map">
-        select * from group_post where id = 1
+    <select id="getOne" resultType="com.chen.mybatisfactories.Po.Post">
+        select * from group_post where id = 5
     </select>
     <update id="update">
-        update group_post set `status` = status - 1  where id = 1 and status > 0
+        update group_post set `status` = status - 1  where id = 1
     </update>
+    <insert id="addOne">
+        insert into group_post(id,group_id,content_id,status)
+        values(3,0,5,1);
+    </insert>
+
+    <update id="updateJianxi">
+        update group_post set `status` = 0  where id = 5
+
+    </update>
+
+    <update id="decrece">
+        update group_post set `status` = `status` - #{count}   where id = 5
+    </update>
+<!--    /*> 2 and id &lt; 6*/-->
+
 </mapper>
