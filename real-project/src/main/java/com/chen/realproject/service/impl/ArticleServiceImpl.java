@@ -8,8 +8,10 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Map;
 
 @Service
 public class ArticleServiceImpl implements IArticleService {
@@ -22,10 +24,14 @@ public class ArticleServiceImpl implements IArticleService {
     @Value("${czpName}")
     public String name;
     @Override
-    public Object findOne(long id) {
+    @Transactional
+    public Object findOne() {
+        Map map = null;
+        map = articleMapper.find();
 
 //        return articleMapper.findOneAsMap(id);
-        return articleMapper.findOne(id);
+
+        return map;
     }
 
     @Override

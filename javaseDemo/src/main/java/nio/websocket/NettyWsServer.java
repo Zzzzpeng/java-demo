@@ -1,16 +1,14 @@
-package nio.nettyhttp;
+package nio.websocket;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import nio.netty.ServerHandlerGroup;
+import nio.nettyhttp.MyHttpChannelInilizer;
 
-public class NettyHttpServer {
+public class NettyWsServer {
     public static void main(String[] args) throws Exception {
         startServer();
     }
@@ -26,7 +24,7 @@ public class NettyHttpServer {
                     .childHandler(new MyHttpChannelInilizer());
             System.out.println("server..get ready");
             ChannelFuture cf = serverBootstrap.bind("localhost",8080).sync();
-//            cf.channel().closeFuture().sync();
+            cf.channel().closeFuture().sync();
         }catch (Exception e){
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();

@@ -1,7 +1,12 @@
 package com.chen.realproject;
 
 import com.chen.realproject.dao.ArticleMapper;
+import com.chen.realproject.data.PageVo;
 import com.chen.realproject.entity.Article;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import org.apache.ibatis.reflection.wrapper.ObjectWrapper;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Test;
@@ -14,6 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @RunWith(SpringRunner.class)
@@ -25,9 +31,14 @@ public class RealProjectApplicationTests {
     private RedisTemplate redisTemplate;
 
     @Test
-    public void cacheTest(){
-        redisTemplate.multi();
-        redisTemplate.exec();
+    public void cacheTest() throws JsonProcessingException {
+        HashMap<Object, Object> map = new HashMap<>();
+        map.put("name", "zjag");
+        PageVo pageVo = new PageVo();
+        ObjectMapper objectMapper = new ObjectMapper();
+        System.out.println(objectMapper.writeValueAsString(pageVo));
+//        redisTemplate.multi();
+//        redisTemplate.exec();
     }
     @Test
     public void contextLoads() throws JSONException {

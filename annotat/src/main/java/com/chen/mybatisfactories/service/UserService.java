@@ -6,15 +6,19 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface UserService {
-    int update();
+    int update(long time);
 
     Object getOne();
 
-    int addOne();
+    int addOne(int id);
+
+    int delOne(int id);
 
     int updateJianxi();
 
     int decrece(int count, long time);
 
     void noTxTtest();
+
+    int salee();
 }

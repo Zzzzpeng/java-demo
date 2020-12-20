@@ -1,8 +1,16 @@
 import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.util.ReflectionUtils;
 
+import java.util.HashMap;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Test{
     public static void main(String[] args) {
+        ReentrantLock lock = new ReentrantLock();
+        lock.lock();
+        lock.lock();
+        lock.unlock();
+        lock.unlock();
 //        new SubContext().init();
     }
 }

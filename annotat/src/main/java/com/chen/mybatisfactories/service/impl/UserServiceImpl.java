@@ -13,13 +13,21 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserServiceImpl implements UserService, GoodService {
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    UserService userService;
 
-    @Transactional(rollbackFor = Exception.class,isolation = Isolation.REPEATABLE_READ, propagation = Propagation.NEVER)
-    public int update() {
-        System.out.println(Thread.currentThread().getName()+":  "+userMapper.getOne());
+    @Transactional(rollbackFor = Exception.class,isolation = Isolation.REPEATABLE_READ)
+    public int update(long time) {
+        System.out.println(Thread.currentThread().getName()+":  "+userMapper.getOneForUpdate());
+        System.out.println(Thread.currentThread().getName()+"执行update");
         int update;
         update = userMapper.update();
-        System.out.println(Thread.currentThread().getName()+"执行update");
+        try {
+            Thread.sleep(time);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         System.out.println(Thread.currentThread().getName()+":  "+userMapper.getOne());
         return update;
 //        return 0;
@@ -45,9 +53,12 @@ public class UserServiceImpl implements UserService, GoodService {
 
     }
 
+
+
     @Override
     @Transactional(rollbackFor = Exception.class,isolation = Isolation.REPEATABLE_READ)
     public Object getOne() {
+        System.out.println(Thread.currentThread().getName()+":  "+"執行getOne");
         System.out.println(Thread.currentThread().getName()+":  "+userMapper.getOne());
 //        try {
 //            Thread.sleep(2000);
@@ -55,17 +66,24 @@ public class UserServiceImpl implements UserService, GoodService {
 //            e.printStackTrace();
 //        }
 //        userMapper.update();
-//        System.out.println(Thread.currentThread().getName()+"执行update");
-        System.out.println(Thread.currentThread().getName()+":  "+userMapper.getOne());
         return null;
 }
 
     @Override
-    @Transactional(isolation = Isolation.REPEATABLE_READ)
-    public int addOne() {
+//    @Transactional(isolation = Isolation.REPEATABLE_READ, propagation = Propagation.NOT_SUPPORTED)
+    public int addOne(int id) {
         System.out.println(Thread.currentThread().getName()+":  執行addOne");
-        userMapper.addOne();
+        userMapper.addOne(id);
         System.out.println(Thread.currentThread().getName()+":  addOne执行完毕");
+        return 0;
+    }
+
+    @Override
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    public int delOne(int id) {
+        System.out.println(Thread.currentThread().getName()+":  執行delOne");
+        userMapper.delOne(id);
+        System.out.println(Thread.currentThread().getName()+":  delOne执行完毕");
         return 0;
     }
 
@@ -75,7 +93,7 @@ public class UserServiceImpl implements UserService, GoodService {
         System.out.println(Thread.currentThread().getName()+":  執行updateJianxi");
         userMapper.updateJianxi();
         try {
-            Thread.sleep(20000);
+            Thread.sleep(30 * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -84,9 +102,15 @@ public class UserServiceImpl implements UserService, GoodService {
     }
 
     @Override
-    public int sale(int id, int num) {
-        System.out.println("执行sale");
-        return 0;
+    @Transactional(isolation = Isolation.REPEATABLE_READ)
+    public int salee() {
+        System.out.println("执行salee");
+        addOne(3);
+        throw new RuntimeException();
     }
 
+    @Override
+    public int sale(int id, int num) {
+        return 0;
+    }
 }

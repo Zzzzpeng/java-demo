@@ -1,6 +1,8 @@
 package com.chen.realproject.data;
 
 public class PageVo {
+    int age;
+    int num;
     Long total;
     Integer pageNum;
     Integer pageSize;
@@ -15,6 +17,22 @@ public class PageVo {
     }
 
     Object data;
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
+    }
 
     public PageVo() {
     }

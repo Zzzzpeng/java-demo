@@ -1,6 +1,10 @@
 package sort;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class QuickSort {
    public  static void quicklySort(int[] nums,int left,int right){
@@ -38,6 +42,7 @@ public class QuickSort {
        nums[index] = pilot;
        return index;
    }
+
 
     public static void main(String[] args) {
         int[] nums = new int[50];

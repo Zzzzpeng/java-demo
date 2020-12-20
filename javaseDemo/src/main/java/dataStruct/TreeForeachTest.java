@@ -1,9 +1,12 @@
 package dataStruct;
 
+import org.junit.Test;
 import org.springframework.util.CollectionUtils;
 import sun.reflect.generics.tree.Tree;
 
 import java.util.*;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class TreeForeachTest {
     private static class TreeNode {
@@ -172,5 +175,10 @@ public class TreeForeachTest {
         System.out.println();
         postTravalNoRecursive_mostLeft(tree);
 //        new TreeMap<>().forEach();
+    }
+
+    public int Sum_Solution(int n) {
+
+        return n + Sum_Solution(n - 1);
     }
 }

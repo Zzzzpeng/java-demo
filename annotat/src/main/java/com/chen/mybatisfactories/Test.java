@@ -16,6 +16,7 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.*;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public class Test {
@@ -39,23 +40,27 @@ public class Test {
 
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         UserService bean = ac.getBean("userServiceImpl",UserService.class);
-        bean.update();
+        new Thread(() -> bean.update(5000)).start();
+        Thread.sleep(1100);
+        new Thread(() -> bean.getOne()).start();
 
+//        bean.salee();
 
 //        new Thread(()->bean.getOne()).start();
 //        Thread.sleep(80);
 //        new Thread(()->bean.update()).start();
 
-//        //间隙锁测试,线程1区间修改,线程2去读
+////        间隙锁测试,线程1区间修改,线程2去读
 //        new Thread(()->bean.updateJianxi()).start();
 //        Thread.sleep(1000);
-//        new Thread(()->bean.getOne()).start();
+////        new Thread(()->bean.addOne(3)).start();
+//        new Thread(()->bean.delOne(3)).start();
 
 
-        //可重复读&修改同一行数据,可重复读失效(dml语句是当前读,不再读开始版本而是读最新版本)
-        new Thread(()->bean.decrece(1,2000L)).start();
-        Thread.sleep(900);
-        new Thread(()->bean.decrece(1,0)).start();
+//        //可重复读&修改同一行数据,可重复读失效(dml语句是当前读,不再读开始版本而是读最新版本)
+//        new Thread(()->bean.decrece(1,2000L)).start();
+//        Thread.sleep(900);
+//        new Thread(()->bean.decrece(1,0)).start();
 
 
     }
@@ -75,7 +80,7 @@ public class Test {
 //        bean.getOne();
         new Thread(()->bean.getOne()).start();
         Thread.sleep(200);
-        new Thread(()->bean.update()).start();
+        new Thread(()->bean.update(0)).start();
         System.out.println(bean.getOne());
     }
 
@@ -91,7 +96,7 @@ public class Test {
         System.out.println(bean);
 
         UserService bean1 = (UserService) ac.getBean("userServiceImpl");
-        bean1.update();
+        bean1.update(0);
 //        UserService bean = (UserService) ac.getBean("myBean");
 //        bean.update();
 
@@ -101,21 +106,21 @@ public class Test {
     public static void autoAopTest(){
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         UserService bean = (UserService) ac.getBean("userService");
-        bean.update();
+        bean.update(0);
         ((GoodService) bean).sale(1, 1);
     }
 
     public static void aopTest() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         UserService bean = (UserService) ac.getBean("bookDaoProxy");
-        bean.update();
+        bean.update(0);
         ((GoodService) bean).sale(1, 1);
     }
 
     public static void springTransactionTest() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         UserService bean = (UserService) ac.getBean("userService");
-        bean.update();
+        bean.update(0);
     }
 
     @org.junit.Test
@@ -136,6 +141,48 @@ public class Test {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         ValueBean bean = ac.getBean(ValueBean.class);
         bean.show();
+    }
+    @org.junit.Test
+    public void jdbcTest() throws SQLException {
+        Connection connection = null;
+        Statement st = null;
+        ResultSet rs = null;
+
+        try {
+            //1.注册驱动
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+
+            //2.建立连接
+            //方法一  参数一：协议+访问数据库，参数二：用户名，参数三：密码
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/hsh_car?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC", "root", "root");
+
+            //方法二
+//            DriverManager.getConnection("jdbc:msql://localhost/student?user=root&password=password");
+
+            //3.创建statement，跟数据库打交道一定需要这个对象
+            st = connection.createStatement();
+
+            //4.执行查询
+            String sql = "select * from stu";
+            rs = st.executeQuery(sql);
+
+            //5.遍历查询每一条记录
+            while(rs.next()) {
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                int age = rs.getInt("age");
+
+                System.out.println("id = " + id + "; name = " + name + "; age = " + age);
+            }
+            //进行资源释放
+            rs.close();
+            st.close();
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

@@ -18,4 +18,6 @@ public interface ArticleMapper {
 
     int update(String content);
     List<Article> findList(int pageNum,int pageSize);
+
+    Map find();
 }

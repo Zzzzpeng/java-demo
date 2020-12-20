@@ -25,7 +25,7 @@ import java.util.Objects;
 
 @EnableScheduling
 @SpringBootApplication(scanBasePackages = {"com.chen.realproject"})
-@EnableApolloConfig
+//@EnableApolloConfig
 //@PropertySource("classpath:application.yml")
 public class RealProjectApplication {
 

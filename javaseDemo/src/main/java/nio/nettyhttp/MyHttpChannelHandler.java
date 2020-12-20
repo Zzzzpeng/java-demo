@@ -31,7 +31,7 @@ public class MyHttpChannelHandler extends SimpleChannelInboundHandler<HttpObject
                 resp.headers().add(HttpHeaderNames.CONTENT_TYPE, "text/plain;charset=utf8");
                 resp.headers().add(HttpHeaderNames.CONTENT_LENGTH, byteBuf.readableBytes());
                 ctx.writeAndFlush(resp);
-            },5, TimeUnit.SECONDS);
+            },1, TimeUnit.SECONDS);
         }else {
             ctx.writeAndFlush("only http receive".getBytes("utf8"));
         }
