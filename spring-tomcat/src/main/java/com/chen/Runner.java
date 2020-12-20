@@ -15,15 +15,15 @@ public class Runner {
             Iter next = iterator.next();
             System.out.println(next);
         }
-//        Tomcat tomcat = new Tomcat();
-//        tomcat.setPort(8080);
-//        try {
-//            tomcat.addWebapp("/", "f:/webapp");
-//            tomcat.start();
-//            tomcat.getServer().await();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        Tomcat tomcat = new Tomcat();
+        tomcat.setPort(8080);
+        try {
+            tomcat.addWebapp("/", "f:/webapp");
+            tomcat.start();
+            tomcat.getServer().await();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     static class IterImpl implements Iter {
