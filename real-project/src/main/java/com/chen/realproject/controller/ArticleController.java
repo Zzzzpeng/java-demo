@@ -3,13 +3,17 @@ package com.chen.realproject.controller;
 import com.chen.realproject.data.RespMap;
 import com.chen.realproject.entity.Article;
 import com.chen.realproject.service.IArticleService;
+import com.chen.realproject.util.SpringContextUtils;
 import org.apache.tomcat.util.http.fileupload.FileUploadBase;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import javax.validation.constraints.Max;
@@ -30,10 +34,12 @@ public class ArticleController {
     IArticleService iArticleService;
 
     @GetMapping
-    Map handle() {
+    Map handle(HttpServletRequest request) {
         Map map = new HashMap();
         map.put("code", 200);
-        map.put("data", null);
+        RedisTemplate bean = SpringContextUtils.getApplicationContext().getBean(StringRedisTemplate.class);
+        System.out.println(bean.opsForValue().get("url2Role"));
+        map.put("data", iArticleService.getData());
         return map;
     }
 

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -27,6 +28,7 @@ import java.util.Objects;
 @SpringBootApplication(scanBasePackages = {"com.chen.realproject"})
 //@EnableApolloConfig
 //@PropertySource("classpath:application.yml")
+@EnableCaching
 public class RealProjectApplication {
 
 

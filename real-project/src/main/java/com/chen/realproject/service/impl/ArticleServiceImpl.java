@@ -1,5 +1,6 @@
 package com.chen.realproject.service.impl;
 
+import com.chen.realproject.conf.MyKeyGenerator;
 import com.chen.realproject.dao.ArticleMapper;
 import com.chen.realproject.data.PageVo;
 import com.chen.realproject.entity.Article;
@@ -7,6 +8,7 @@ import com.chen.realproject.service.IArticleService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,6 +49,13 @@ public class ArticleServiceImpl implements IArticleService {
     @Override
     public void show() {
         System.out.println(name);
+    }
+
+    @Override
+    @Cacheable(cacheNames = "url2Role"/*,keyGenerator = "MyKeyGenerator"*/)
+    public String getData() {
+        System.out.println("执行查询");
+        return "result....";
     }
 
 

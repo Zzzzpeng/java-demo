@@ -6,4 +6,6 @@ public interface IArticleService {
     Object findOne();
     Object findList(int pageNum,int pageSize);
     void show();
+
+    String getData();
 }
