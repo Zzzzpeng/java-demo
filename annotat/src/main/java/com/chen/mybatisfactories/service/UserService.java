@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface UserService {
-    int update(long time);
+    int updateForUpdate(long time);
 
     Object getOne();
 
@@ -15,6 +15,8 @@ public interface UserService {
     int delOne(int id);
 
     int updateJianxi();
+
+    int updateREQUIRES_NEW();
 
     int decrece(int count, long time);
 

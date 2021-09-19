@@ -7,17 +7,11 @@ import com.chen.mybatisfactories.mapper.UserMapper;
 import com.chen.mybatisfactories.mapper.apollo.AppMapper;
 import com.chen.mybatisfactories.service.Engine;
 import com.chen.mybatisfactories.service.GoodService;
-import com.chen.mybatisfactories.service.Human;
+import com.chen.mybatisfactories.service.TestService;
 import com.chen.mybatisfactories.service.UserService;
-import com.chen.mybatisfactories.service.impl.UserServiceImpl;
-import javafx.geometry.Pos;
-import org.springframework.aop.support.DefaultPointcutAdvisor;
-import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.*;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class Test {
 
@@ -40,9 +34,14 @@ public class Test {
 
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         UserService bean = ac.getBean("userServiceImpl",UserService.class);
-        new Thread(() -> bean.update(5000)).start();
-        Thread.sleep(1100);
-        new Thread(() -> bean.getOne()).start();
+
+        TestService testService = ac.getBean(TestService.class);
+        testService.transactionTest();
+
+
+//        new Thread(() -> bean.updateForUpdate(5000)).start();
+//        Thread.sleep(1100);
+//        new Thread(() -> bean.getOne()).start();
 
 //        bean.salee();
 
@@ -50,11 +49,7 @@ public class Test {
 //        Thread.sleep(80);
 //        new Thread(()->bean.update()).start();
 
-////        间隙锁测试,线程1区间修改,线程2去读
-//        new Thread(()->bean.updateJianxi()).start();
-//        Thread.sleep(1000);
-////        new Thread(()->bean.addOne(3)).start();
-//        new Thread(()->bean.delOne(3)).start();
+
 
 
 //        //可重复读&修改同一行数据,可重复读失效(dml语句是当前读,不再读开始版本而是读最新版本)
@@ -63,7 +58,19 @@ public class Test {
 //        new Thread(()->bean.decrece(1,0)).start();
 
 
+        //间隙锁测试,线程1区间修改,线程2去读
+//        jianXiSuoTest(bean);
+
     }
+
+    //间隙锁测试,线程1区间修改,线程2去读
+    public static void jianXiSuoTest(UserService bean) throws InterruptedException {
+        new Thread(()->bean.updateJianxi()).start();
+        Thread.sleep(1000);
+//        new Thread(()->bean.addOne(3)).start();
+        new Thread(()->bean.addOne(3)).start();
+    }
+
 
 
     @org.junit.Test
@@ -80,7 +87,7 @@ public class Test {
 //        bean.getOne();
         new Thread(()->bean.getOne()).start();
         Thread.sleep(200);
-        new Thread(()->bean.update(0)).start();
+        new Thread(()->bean.updateForUpdate(0)).start();
         System.out.println(bean.getOne());
     }
 
@@ -96,7 +103,7 @@ public class Test {
         System.out.println(bean);
 
         UserService bean1 = (UserService) ac.getBean("userServiceImpl");
-        bean1.update(0);
+        bean1.updateForUpdate(0);
 //        UserService bean = (UserService) ac.getBean("myBean");
 //        bean.update();
 
@@ -106,21 +113,21 @@ public class Test {
     public static void autoAopTest(){
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         UserService bean = (UserService) ac.getBean("userService");
-        bean.update(0);
+        bean.updateForUpdate(0);
         ((GoodService) bean).sale(1, 1);
     }
 
     public static void aopTest() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         UserService bean = (UserService) ac.getBean("bookDaoProxy");
-        bean.update(0);
+        bean.updateForUpdate(0);
         ((GoodService) bean).sale(1, 1);
     }
 
     public static void springTransactionTest() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         UserService bean = (UserService) ac.getBean("userService");
-        bean.update(0);
+        bean.updateForUpdate(0);
     }
 
     @org.junit.Test

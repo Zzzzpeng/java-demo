@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService, GoodService {
     UserService userService;
 
     @Transactional(rollbackFor = Exception.class,isolation = Isolation.REPEATABLE_READ)
-    public int update(long time) {
+    public int updateForUpdate(long time) {
         System.out.println(Thread.currentThread().getName()+":  "+userMapper.getOneForUpdate());
         System.out.println(Thread.currentThread().getName()+"执行update");
         int update;
@@ -30,8 +30,16 @@ public class UserServiceImpl implements UserService, GoodService {
 
         System.out.println(Thread.currentThread().getName()+":  "+userMapper.getOne());
         return update;
-//        return 0;
     }
+
+//    @Transactional(rollbackFor = Exception.class,propagation = Propagation.REQUIRES_NEW)
+    public int updateREQUIRES_NEW() {
+        System.out.println(Thread.currentThread().getName()+"执行update");
+        int update;
+        update = userMapper.update();
+        return update;
+    }
+
 
     @Transactional(rollbackFor = Exception.class,isolation = Isolation.REPEATABLE_READ)
     public int decrece(int count,long time) {
@@ -93,7 +101,7 @@ public class UserServiceImpl implements UserService, GoodService {
         System.out.println(Thread.currentThread().getName()+":  執行updateJianxi");
         userMapper.updateJianxi();
         try {
-            Thread.sleep(30 * 1000);
+            Thread.sleep(10 * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
