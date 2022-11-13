@@ -14,7 +14,7 @@ public class ServerHandlerGroup {
         @Override
         public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
             System.out.println("ServerHandler.channelReadComplete()..");
-//            ctx.writeAndFlush(Unpooled.copiedBuffer("resp", CharsetUtil.UTF_8));
+
             ctx.writeAndFlush(Unpooled.copiedBuffer("only..http..receive\t", CharsetUtil.UTF_8));
             super.channelReadComplete(ctx);
         }

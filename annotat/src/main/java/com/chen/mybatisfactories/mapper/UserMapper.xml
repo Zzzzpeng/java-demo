@@ -30,6 +30,10 @@
     <update id="decrece">
         update group_post set `status` = `status` - #{count}   where id = 5
     </update>
+
+    <select id="count" resultType="java.lang.Integer">
+        select count(*) from group_post
+    </select>
 <!--    /*> 2 and id &lt; 6*/-->
 
 </mapper>

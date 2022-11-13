@@ -35,8 +35,8 @@ public class Test {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
         UserService bean = ac.getBean("userServiceImpl",UserService.class);
 
-        TestService testService = ac.getBean(TestService.class);
-        testService.transactionTest();
+//        TestService testService = ac.getBean(TestService.class);
+//        testService.transactionTest();
 
 
 //        new Thread(() -> bean.updateForUpdate(5000)).start();
@@ -52,23 +52,32 @@ public class Test {
 
 
 
-//        //可重复读&修改同一行数据,可重复读失效(dml语句是当前读,不再读开始版本而是读最新版本)
-//        new Thread(()->bean.decrece(1,2000L)).start();
-//        Thread.sleep(900);
-//        new Thread(()->bean.decrece(1,0)).start();
+        //可重复读&修改同一行数据,可重复读失效(dml语句是当前读,不再读开始版本而是读最新版本)
+        //如果t1先修改,t1事务结束之前t2中的dml会阻塞
+//        new Thread(()->bean.decrece(1,3000L),"t1").start();
+//        Thread.sleep(500);
+//        new Thread(()->bean.decrece(1,0),"t2").start();
 
 
         //间隙锁测试,线程1区间修改,线程2去读
-//        jianXiSuoTest(bean);
+        jianXiSuoTest(bean);
 
     }
 
-    //间隙锁测试,线程1区间修改,线程2去读
+
+
+    /**
+     * 间隙锁测试,线程1区间修改,线程2去读
+     * 事务中进行区间修改时,会锁区间,此时阻塞其它事务对这个区间的insert,del操作.
+     * 如果条件修改不能命中索引,会导致锁表
+     * @param bean
+     * @throws InterruptedException
+     */
     public static void jianXiSuoTest(UserService bean) throws InterruptedException {
         new Thread(()->bean.updateJianxi()).start();
-        Thread.sleep(1000);
+//        Thread.sleep(1000);
 //        new Thread(()->bean.addOne(3)).start();
-        new Thread(()->bean.addOne(3)).start();
+//        new Thread(()->bean.addOne(3)).start();
     }
 
 

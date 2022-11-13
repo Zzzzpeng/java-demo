@@ -37,14 +37,14 @@ public class HeadSort {
 
 
 
-        int[] nums = new int[10];
-        nums = new int[]{7, 53, 96, 44, 1000};
+        int[] nums ;
+        nums = new int[]{5,11,7,2,3,17};
         int[] ints = Arrays.copyOf(nums, 2);
         for (int anInt : ints) {
             System.out.println(anInt);
         }
 
-
+        sort(nums);
 //        for (int i = 0; i < nums.length; i++) {
 //            nums[i] = (int) (Math.random() * 100);
 //        }

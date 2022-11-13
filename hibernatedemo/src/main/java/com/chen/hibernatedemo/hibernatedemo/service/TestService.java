@@ -4,7 +4,6 @@ import com.chen.hibernatedemo.hibernatedemo.dao.PostRepository;
 import com.chen.hibernatedemo.hibernatedemo.model.GroupPost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service

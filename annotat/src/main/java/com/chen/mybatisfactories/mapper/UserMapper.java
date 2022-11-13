@@ -19,4 +19,6 @@ public interface UserMapper {
     int updateJianxi();
 
     int decrece(int count);
+
+    int count();
 }

@@ -12,6 +12,7 @@
         <module>ex-io</module>
         <module>spring-tomcat</module>
         <module>annotat</module>
+        <module>executor</module>
     </modules>
     <groupId>com.chen</groupId>
     <artifactId>manager</artifactId>

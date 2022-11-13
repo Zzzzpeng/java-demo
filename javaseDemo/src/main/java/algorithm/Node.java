@@ -4,6 +4,7 @@ package algorithm;
 import org.junit.Test;
 import sun.net.www.http.HttpClient;
 
+import java.math.BigDecimal;
 import java.sql.DriverManager;
 import java.util.*;
 
@@ -38,6 +39,262 @@ public class Node {
         TreeLinkNode(int val) {
             this.val = val;
         }
+    }
+
+
+    /**
+     * 描述
+     * 给定一个链表，删除链表的倒数第 n 个节点并返回链表的头指针
+     * 例如，
+     * 给出的链表为: 1\to 2\to 3\to 4\to 51→2→3→4→5, n= 2n=2.
+     * 删除了链表的倒数第 nn 个节点之后,链表变为1\to 2\to 3\to 51→2→3→5.
+     * <p>
+     * 数据范围： 链表长度 0\le n \le 10000≤n≤1000，链表中任意节点的值满足 0 \le val \le 1000≤val≤100
+     * 要求：空间复杂度 O(1)O(1)，时间复杂度 O(n)O(n)
+     * 备注：
+     * 题目保证 nn 一定是有效的
+     *
+     * @param head ListNode类
+     * @param n    int整型
+     * @return ListNode类
+     */
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        if (head == null || n < 1) {
+            return head;
+        }
+        int len = 0;
+        ListNode ct = head;
+        while (ct != null) {
+            len++;
+            ct = ct.next;
+        }
+        ListNode result;
+        if (n == len) {
+            result = head.next;
+            head.next = null;
+            return result;
+        }
+        ct = head;
+        for (int i = 0; i < len - n - 1; i++) {
+            ct = ct.next;
+        }
+        if (n == 1) {
+            ct.next = null;
+        }else{
+            ct.next = ct.next.next;
+        }
+        return head;
+    }
+
+    @Test
+    public void testRemoveNthFromEnd() {
+        ListNode head = buildListNode();
+        ListNode result = removeNthFromEnd(head, 2);
+        System.out.println(result);
+
+        head = buildListNode();
+        result = removeNthFromEnd(head, 1);
+        System.out.println(result);
+
+        head = buildListNode();
+        result = removeNthFromEnd(head, 5);
+        System.out.println(result);
+
+    }
+
+
+    /**
+     * 描述
+     * 假设链表中每一个节点的值都在 0 - 9 之间，那么链表整体就可以代表一个整数。
+     * 给定两个这种链表，请生成代表两个整数相加值的结果链表。
+     * 数据范围：0 \le n,m \le 10000000≤n,m≤1000000，链表任意值 0 \le val \le 90≤val≤9
+     * 要求：空间复杂度 O(n)O(n)，时间复杂度 O(n)O(n)
+     *
+     * 例如：链表 1 为 9->3->7，链表 2 为 6->3，最后生成新的结果链表为 1->0->0->0。
+     * @return
+     */
+    public ListNode addInList (ListNode head1, ListNode head2) {
+        // write code here
+        StringBuilder sb1 = new StringBuilder();
+        StringBuilder sb2 = new StringBuilder();
+        ListNode ct1 = head1;
+        ListNode ct2 = head2;
+        while (ct1 != null) {
+            sb1.append(ct1.val);
+            ct1 = ct1.next;
+        }
+        while (ct2 != null) {
+            sb2.append(ct2.val);
+            ct2 = ct2.next;
+        }
+        int len = sb1.length() > sb2.length() ? sb1.length() : sb2.length();
+        StringBuilder sumSb = new StringBuilder();
+
+        int preOver = 0;
+        for (int i = 0; i < len; i++) {
+            int iSum = 0;
+            if (i <= sb1.length() - 1) {
+                iSum += sb1.charAt(sb1.length() -i -1) - '0';
+            }
+            if (i <= sb2.length() - 1) {
+                iSum += sb2.charAt(sb2.length() -i - 1) - '0';
+            }
+            iSum += preOver;
+            int over  = iSum >= 10 ? 1 : 0;
+            sumSb.insert(0, (iSum % 10));
+            preOver = over;
+        }
+        if (preOver == 1) {
+            sumSb.insert(0, (preOver));
+        }
+
+        String s = sumSb.toString();
+        ListNode head = new ListNode(s.charAt(0) - '0');
+        ListNode ct = head;
+        for (int i = 1; i < s.length(); i++) {
+            ct.next = new ListNode(s.charAt(i) - '0');
+            ct = ct.next;
+        }
+        return head;
+    }
+
+
+    @Test
+    public void addInList() {
+        ListNode head1 = buildListNode();
+        ListNode head2 = new ListNode(6);
+        head2.next = new ListNode(6);
+        ListNode result = addInList(head1, head2);
+        System.out.println(result);
+    }
+
+
+    /**
+     *描述
+     * 给定一个链表，请判断该链表是否为回文结构。
+     * 回文是指该字符串正序逆序完全一致。
+     * 数据范围： 链表节点数 0 \le n \le 10^50≤n≤10
+     * 5
+     *  ，链表中每个节点的值满足 |val| \le 10^7∣val∣≤10
+     * 7
+     * @param head ListNode类 the head
+     * @return bool布尔型
+     */
+    public boolean isPail (ListNode head) {
+        if (head == null) {
+            return true;
+        }
+        List<ListNode> list = new ArrayList<>();
+        ListNode ct = head;
+        while (ct != null) {
+            list.add(ct);
+            ct = ct.next;
+        }
+        int endInx = (list.size() - 1) / 2;
+        for (int i = 0; i <= endInx; i++) {
+            if (list.get(i).val != list.get(list.size() - 1 - i).val) {
+                return false;
+            }
+        }
+        return true;
+        // 7 -> 3   8 ->3
+    }
+
+
+    /**
+     * BM14 链表的奇偶重排
+     * 给定一个单链表，请设定一个函数，将链表的奇数位节点和偶数位节点分别放在一起，重排后输出。
+     * 注意是节点的编号而非节点的数值。
+     *
+     * 数据范围：节点数量满足 0 \le n \le 10^50≤n≤10
+     * 5
+     *  ，节点中的值都满足 0 \le val \le 10000≤val≤1000
+     * 要求：空间复杂度 O(n)O(n)，时间复杂度 O(n)O(n)
+     * @return
+     */
+
+    public ListNode oddEvenList (ListNode head) {
+        // write code here
+        if (head == null) {
+            return head;
+        }
+        ListNode ct = head;
+        ListNode head2 = head.next;
+        while (true) {
+            // * -> *  ->  *  ->  *
+            ListNode ct2 = ct.next;
+            ListNode next1;
+            if (ct2 == null || (next1 = ct2.next) == null) {
+                ct.next = head2;
+                return head;
+            }
+            ListNode next2 = next1 != null ? next1.next : null;
+            ct.next = next1;
+            ct2.next = next2;
+            ct = next1;
+        }
+
+    }
+
+    /**
+     * BM15 删除有序链表中重复的元素-I
+     * 描述
+     * 删除给出链表中的重复元素（链表中元素从小到大有序），使链表中的所有元素都只出现一次
+     * 例如：
+     * 给出的链表为1\to1\to21→1→2,返回1 \to 21→2.
+     * 给出的链表为1\to1\to 2 \to 3 \to 31→1→2→3→3,返回1\to 2 \to 31→2→3.
+     *
+     * 数据范围：链表长度满足 0 \le n \le 1000≤n≤100，链表中任意节点的值满足 |val| \le 100∣val∣≤100
+     * 进阶：空间复杂度 O(1)O(1)，时间复杂度 O(n)O(n)
+     * @return
+     */
+    public ListNode deleteDuplicates (ListNode head) {
+        // write code here
+        ListNode ct = head;
+        while (ct != null) {
+            ListNode next = ct.next;
+            while (next != null && next.val == ct.val) {
+                next = next.next;
+            }
+            ct.next = next;
+            ct = next;
+        }
+        return head;
+    }
+
+
+    /**
+     *BM16 删除有序链表中重复的元素-II
+     * 给出一个升序排序的链表，删除链表中的所有重复出现的元素，只保留原链表中只出现一次的元素。
+     * 例如：
+     * 给出的链表为1 \to 2\to 3\to 3\to 4\to 4\to51→2→3→3→4→4→5, 返回1\to 2\to51→2→5.
+     * 给出的链表为1\to1 \to 1\to 2 \to 31→1→1→2→3, 返回2\to 32→3.
+     *
+     * 数据范围：链表长度 0 \le n \le 100000≤n≤10000，链表中的值满足 |val| \le 1000∣val∣≤1000
+     * 要求：空间复杂度 O(n)O(n)，时间复杂度 O(n)O(n)
+     * 进阶：空间复杂度 O(1)O(1)，时间复杂度 O(n)O(n)
+     * @param head ListNode类
+     * @return ListNode类
+     */
+    public ListNode deleteDuplicatesPlus (ListNode head) {
+        // write code here
+        while (head != null) {
+
+        }
+        return head;
+    }
+
+
+
+
+
+    private ListNode buildListNode() {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+        head.next.next.next = new ListNode(4);
+//        head.next.next.next.next = new ListNode(5);
+        return head;
     }
 
     /**
@@ -75,7 +332,7 @@ public class Node {
     }
 
 
-    //给定一个链表，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。
+    //给定一个链表，返回链表开始入环的第一个节点。?如果链表无环，则返回?null。
     //为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。 如果 pos 是 -1，则在该链表中没有环。
     //说明：不允许修改给定的链表。
     //来源：力扣（LeetCode）
@@ -422,9 +679,9 @@ public class Node {
 //        System.out.println(midSearch(new int[]{1, 4, 5, 7, 8, 8, 9}, 9));
 
 
-        TreeNode deserialize = deserialize("1,2,3,null,null,4,5");
-        String serialize = serialize(deserialize);
-        System.out.println(serialize);
+//        TreeNode deserialize = deserialize("1,2,3,null,null,4,5");
+//        String serialize = serialize(deserialize);
+//        System.out.println(serialize);
 
 
     }
